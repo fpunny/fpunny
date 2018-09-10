@@ -6,7 +6,7 @@ import '../styles/index.css';
 
 export class App extends Component {
   render() {
-    const active = window.location.pathname;
+    const active = process.env.PUBLIC_URL + window.location.pathname;
     return (
       <Fragment>
         <Nav delay={TRANSITION_DELAY} items={PAGES} active={active}/>

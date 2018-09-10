@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { TRANSITION_DELAY } from '..';
 import { toggleFade } from '../redux/actions/page';
 
