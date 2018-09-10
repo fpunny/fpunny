@@ -1,0 +1,65 @@
+@import '../mixins';
+@import '../variables';
+
+.nav {
+  $self: &;
+  z-index: 999;
+  animation: nav-drop $page-speed $enter-ease backwards;
+  @keyframes nav-drop {
+    from { transform: translate3d(0, -100%, 0) } to { transform: translate3d(0, 0, 0) }
+  }
+  @include position(fixed, 0 auto auto, 0, 0, auto, 0);
+
+  &__link, &__logo {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__logo {
+    @include flex(center);
+    padding-left: 15px;
+    &-image {
+      width: 70px;
+      height: auto;
+    }
+  }
+
+  &__items {
+    list-style-type: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 0.85rem;
+    letter-spacing: 0.04rem;
+    padding: 14px $site-padding 2px;
+    @include flex(flex-start, center);
+  }
+
+  &__item {
+    margin: 0 26px;
+    padding: 5px 0;
+    transition: color $slow-speed $normal-ease;
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: white;
+      transform: scale3d(0, 1, 1);
+      transition: transform $slow-speed $normal-ease;
+      @include position(absolute, auto auto 0);
+    }
+
+    &--active::after { transform: scale3d(1, 1, 1) }
+    &:not(&--active):hover { color: color($blue-grey, 100) }
+  }
+
+  &__link {
+    padding: 0 4px;
+  }
+
+  &__wrapper {
+    &--logo {
+      margin-right: auto;
+    }
+  }
+}

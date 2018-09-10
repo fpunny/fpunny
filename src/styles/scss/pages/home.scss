@@ -1,0 +1,80 @@
+@import '../mixins';
+@import '../variables';
+
+.home {
+  background-size: cover;
+  background-position: center;
+  padding: 0 8%;
+  @include flex(flex-start, center);
+
+  & * { color: white; }
+
+  &__header {
+    font-size: 3.5rem;
+    margin-bottom: -6px;
+  }
+  &__subheader {
+    font-size: 1.4rem;
+  }
+  &__wrapper {
+    &--button {
+      margin-top: 20px;
+    }
+  }
+  &__content {
+    margin-right: auto;
+  }
+  &__button {
+    text-decoration: none;
+    padding: 0 8px 5px 0;
+    font-size: 1.1rem;
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transform-origin: left;
+      transform: scale3d(0.2, 1, 1);
+      transition: transform $slow-speed $normal-ease;
+      @include position(absolute, auto auto 0);
+    }
+
+    &:hover::after {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+// Animations
+.home {
+  $self: &;
+  animation: home $page-speed $enter-ease backwards;
+  @keyframes home { from { opacity: 0 } to { opacity: 1 } }
+
+  &__text {
+    animation: home__text $page-speed $enter-ease backwards;
+    @keyframes home__text {
+      from { transform: translate3d(0, -40px, 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
+  }
+
+  &__wrapper--button {
+    animation: home__button $page-speed $enter-ease backwards;
+    @keyframes home__button {
+      from { transform: translate3d(0, 40px, 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
+  }
+
+  &--fade {
+    opacity: 0;
+    transition: opacity $page-speed $exit-ease;
+    & #{ $self } {
+      &__text, &__wrapper--button { transition: transform $page-speed $exit-ease }
+      &__text { transform: translate3d(0, -40px, 0) }
+      &__wrapper--button { transform: translate3d(0, 40px, 0) }
+    }
+  }
+}

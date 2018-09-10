@@ -1,0 +1,81 @@
+// Flex function thingy - (direction, all, self) OR (all, self)
+@mixin flex($p1: null, $p2: $p1, $p3: $p2) {
+
+  $d: (column, row, column-reverse, row-reverse);
+  $f: (flex-start, flex-end, center, space-around, space-between, space-evenly);
+
+  display: flex;
+  @if $p1 {
+    @if index($d, $p1) {
+      flex-direction: $p1;
+      @if $p2 != $p1 {
+        @if $p2 != flex-start { justify-content: $p2; }
+        @if $p3 != flex-start { align-items: $p3; }
+      }
+
+    } @else {
+      @if $p1 != flex-start { justify-content: $p1; }
+      @if $p2 != flex-start { align-items: $p2; }
+    }
+  }
+}
+
+@mixin position($position, $margin: auto, $top: 0, $right: $top, $bottom: $top, $left: $right) {
+  position: $position;
+  margin: $margin;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin depth($level) {
+  @if $level == 0 {
+    box-shadow: none;
+  } @else if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  } @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  } @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  } @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  } @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+}
+
+@import './colors';
+@function color($color, $value) {
+  @return map-get($color, $value);
+}
+
+$phone-width: 425px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$large-desktop: 1440px;
+
+@mixin phone {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (max-width: #{$large-desktop}) {
+    @content;
+  }
+}
