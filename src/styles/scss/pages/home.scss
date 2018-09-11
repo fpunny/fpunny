@@ -70,9 +70,9 @@
 
   &--fade {
     opacity: 0;
-    transition: opacity $page-speed $exit-ease;
+    transition: opacity $page-speed $normal-ease;
     & #{ $self } {
-      &__text, &__wrapper--button { transition: transform $page-speed $exit-ease }
+      &__text, &__wrapper--button { transition: transform $page-speed $normal-ease }
       &__text { transform: translate3d(0, -40px, 0) }
       &__wrapper--button { transform: translate3d(0, 40px, 0) }
     }

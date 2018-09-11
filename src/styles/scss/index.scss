@@ -13,5 +13,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #root {
   min-height: 100vh;
+  background-color: color($grey, 900);
   @include flex(column);
 }

@@ -32,7 +32,7 @@ export const PAGES = [
   { text: "Work", path: "/work", loader: Work },
   { text: "Contact", path: "/contact", loader: Contact }
 ];
-export const TRANSITION_DELAY = 300;
+export const TRANSITION_DELAY = 600;
 
 ReactDOM.render(
 <Provider store={store}>
