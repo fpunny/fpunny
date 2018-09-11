@@ -5,29 +5,34 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPath } from '../containers';
 
+const MIN_LOAD_TIME = 1000;
 class _Async extends Component {
   
   state = {
     Component: null
   }
 
-  load = () => {
-    const { loader } = this.props;
-    if (!this.state.Component && loader) {
-      loader().then(data =>
-        this._isUnmounted ? null : this.setState({ Component: data.default })
-      )
+  load = (data, curr) => {
+    const { isloaded, loaded } = this.props;
+    const delay = MIN_LOAD_TIME - (new Date() - curr);
+    const path = getPath();
+
+    if (isloaded[path] || delay <= 0) { this.setState({ Component: data.default }) }
+    else {
+      window.setTimeout(() => {
+        loaded(path);
+        this.setState({ Component: data.default });
+      }, delay);
     }
   }
 
   componentDidMount() {
-    const { isloaded, loaded } = this.props;
-    const path = getPath();
-
-    if (isloaded[path]) {
-      this.load();
-    } else {
-      window.setTimeout(() => { this.load(); loaded(path); }, 1500);
+    const { loader } = this.props;
+    if (!this.state.Component && loader) {
+      const curr = new Date();
+      loader().then(data =>
+        this._isUnmounted ? null : this.load(data, curr)
+      )
     }
   }
 
