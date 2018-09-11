@@ -5,9 +5,12 @@ import { PAGES, TRANSITION_DELAY } from '..';
 import '../styles/index.css';
 
 const len = process.env.PUBLIC_URL.length;
+
+export const getPath = () => window.location.pathname.slice(len);
+
 export class App extends Component {
   render() {
-    const active = window.location.pathname.slice(len);
+    const active = getPath();
     return (
       <Fragment>
         <Nav delay={TRANSITION_DELAY} items={PAGES} active={active}/>
@@ -17,6 +20,7 @@ export class App extends Component {
               <Route path={path} key={key} component={() => <Async loader={loader}/>} exact/>
             )
           }
+          <Route path="/TEST" component={() => <Async/>} exact/>
         </Switch>
         <Footer/>
       </Fragment>

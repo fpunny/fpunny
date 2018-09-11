@@ -4,8 +4,7 @@
 .home {
   background-size: cover;
   background-position: center;
-  padding: 0 8%;
-  @include flex(flex-start, center);
+  @include flex(column, center, flex-start);
 
   & * { color: white; }
 
@@ -20,9 +19,6 @@
     &--button {
       margin-top: 20px;
     }
-  }
-  &__content {
-    margin-right: auto;
   }
   &__button {
     text-decoration: none;

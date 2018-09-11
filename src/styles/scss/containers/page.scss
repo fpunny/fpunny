@@ -3,14 +3,7 @@
 
 .page {
   flex-grow: 1;
+  color: white;
   position: relative;
-  padding: 0 $site-padding;
-  &__box {
-    height: 100vh;
-    width: 60%;
-    max-width: calc(100% - 300px);
-    z-index: -1;
-    background-color: color($grey, 800);
-    @include position(absolute, 0 auto 0 0, 0, auto, 0, 0);
-  }
+  padding: 0 7%;
 }

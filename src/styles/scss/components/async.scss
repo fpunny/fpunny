@@ -1,2 +1,51 @@
 @import '../mixins';
 @import '../variables';
+.async {
+
+  $offset: 5px;
+  @mixin animate($name, $x, $y) {
+  animation: $name $page-speed $normal-ease infinite;
+    @keyframes #{$name} {
+      0% { transform: translate3d(0, 0, 0) }
+      50% { transform: translate3d($x * $offset, $y * $offset, 0) }
+      100% { transform: translate3d(0, 0, 0) }
+    }
+  }
+
+  flex-grow: 1;
+  animation: async $page-speed $enter-ease backwards;
+  @keyframes async {
+    from { opacity: 0 } to { opacity: 1 }
+  }
+  @include flex(column, center);
+
+
+  &__line { @include flex }
+  &__spinner {
+    animation: rotate $page-speed $normal-ease infinite;
+    @keyframes rotate {
+      from { transform: rotate(0) }
+      to { transform: rotate(90deg) }
+    }
+  }
+  &__dot {
+    width: 20px;
+    margin: 8px;
+    height: 20px;
+    border-radius: 20px;
+    transform-origin: center;
+    background-color: white;
+    &--one {
+      @include animate(one, 1, 1);
+    }
+    &--two {
+      @include animate(two, -1, 1);
+    }
+    &--three {
+      @include animate(three, 1, -1);
+    }
+    &--four {
+      @include animate(four, -1, -1);
+    }
+  }
+}
