@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleFade } from '../redux/actions/page';
 import '../styles/containers/page.css';
-import { Back } from '../assets';
 
 class _Page extends Component {
 

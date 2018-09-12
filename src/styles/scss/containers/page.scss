@@ -6,4 +6,5 @@
   color: white;
   position: relative;
   padding: 0 7%;
+  @include flex(column, center, flex-start);
 }

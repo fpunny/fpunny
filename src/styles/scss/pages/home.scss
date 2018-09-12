@@ -4,7 +4,6 @@
 .home {
   background-size: cover;
   background-position: center;
-  @include flex(column, center, flex-start);
 
   & * { color: white; }
 

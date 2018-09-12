@@ -4,10 +4,12 @@
 .nav {
   $self: &;
   z-index: 999;
+  padding: 14px $site-padding 2px;
   animation: nav-drop $page-speed $enter-ease backwards;
   @keyframes nav-drop {
     from { transform: translate3d(0, -100%, 0) } to { transform: translate3d(0, 0, 0) }
   }
+  @include flex(flex-start, center);
   @include position(fixed, 0 auto auto, 0, 0, auto, 0);
 
   &__link, &__logo {
@@ -30,8 +32,7 @@
     font-weight: bolder;
     font-size: 0.85rem;
     letter-spacing: 0.04rem;
-    padding: 14px $site-padding 2px;
-    @include flex(flex-start, center);
+    @include flex;
   }
 
   &__item {

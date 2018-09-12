@@ -1,2 +1,53 @@
 @import '../mixins';
 @import '../variables';
+
+.about {
+  &__content { padding-top: 35px; @include flex(flex-start, space-between) }
+  &__subheader { width: 200px }
+  &__text { width: 80% }
+  &__emoji { font-size: 0.8rem }
+  &__line { padding-bottom: 15px; color: rgba(255, 255, 255, 0.8) }
+}
+
+// Animations
+.about {
+  $self: &;
+  animation: about $page-speed $enter-ease backwards;
+  @keyframes about {
+    from { opacity: 0 } to { opacity: 1 }
+  }
+  &__header {
+    animation: about__header $page-speed $enter-ease backwards;
+    @keyframes about__header {
+      from { transform: translate3d(0, -40px, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+  &__subheader {
+    animation: about__sub $page-speed $enter-ease backwards;
+    @keyframes about__sub {
+      from { transform: translate3d(-40px, 0, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+
+  &__text {
+        animation: about__text $page-speed $enter-ease backwards;
+    @keyframes about__text {
+      from { transform: translate3d(40px, 0, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+
+  &--fade {
+    transition: opacity $page-speed $normal-ease;
+    opacity: 0;
+
+    & #{ $self } {
+      &__header, &__subheader, &__text { transition: transform $page-speed $normal-ease }
+      &__header { transform: translate3d(0, -40px, 0) }
+      &__subheader { transform: translate3d(-40px, 0, 0) }
+      &__text { transform: translate3d(40px, 0, 0) }
+    }
+  }
+}

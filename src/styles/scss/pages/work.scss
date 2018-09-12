@@ -1,2 +1,29 @@
 @import '../mixins';
 @import '../variables';
+
+.work {
+  &__items {
+    list-style-type: none;
+    margin: 0 -15px;
+    @include flex;
+  }
+
+  &__item {
+    font-size: 1.1rem;
+    padding: 0 2px 4px;
+    margin: 0 15px;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: white;
+      transform: scale3d(0, 1, 1);
+      transition: transform $slow-speed $normal-ease;
+      @include position(absolute, auto auto 0);
+    }
+    &--active::after { transform: scale3d(1, 1, 1) }
+  }
+}

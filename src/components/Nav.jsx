@@ -7,12 +7,12 @@ export class Nav extends PureComponent {
   render() {
     const { items, active } = this.props;
     return <nav className="nav">
+      <div className="nav__wrapper--logo">
+        <Link to="/" className="nav__logo" isActive={active === "/"}>
+          <img className="nav__logo-image" src={LogoWhiteText} width="70" height="70" alt="Logo" />
+        </Link>
+      </div>
       <ul className="nav__items">
-        <li className="nav__wrapper--logo">
-          <Link to="/" className="nav__logo" isActive={active === "/"}>
-            <img className="nav__logo-image" src={LogoWhiteText} width="70" height="70" alt="Logo"/>
-          </Link>
-        </li>
         {
           items.map(({ text, path }, key) => <this.NavItem path={path} key={key}>{ text }</this.NavItem>)
         }
