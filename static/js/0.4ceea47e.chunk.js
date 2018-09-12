@@ -1,2 +1,0 @@
-webpackJsonp([0],{138:function(e,o,r){"use strict";Object.defineProperty(o,"__esModule",{value:!0});var s=r(0),n=r.n(s),t=r(22),a=r(144),c=(r.n(a),function(){return n.a.createElement(t.b,{className:"work"},"Work")});o.default=c},144:function(e,o,r){var s=r(145);"string"===typeof s&&(s=[[e.i,s,""]]);var n={hmr:!1};n.transform=void 0;r(135)(s,n);s.locals&&(e.exports=s.locals)},145:function(e,o,r){o=e.exports=r(134)(!0),o.push([e.i,"","",{version:3,sources:[],names:[],mappings:"",file:"work.css",sourceRoot:""}])}});
-//# sourceMappingURL=0.4ceea47e.chunk.js.map
