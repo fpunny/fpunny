@@ -2,28 +2,107 @@
 @import '../variables';
 
 .work {
-  &__items {
-    list-style-type: none;
-    margin: 0 -15px;
-    @include flex;
+  padding: 140px 7% 90px;
+  &__head { position: relative; @include flex(flex-start, center) }
+  &__header { margin-right: auto; font-size: 2.2rem; }
+  &__topic {
+    padding: 0px 10px;
+    margin-bottom: -2px;
+    font-size: 4.4rem;
+    letter-spacing: 0.1rem;
+    align-self: flex-end;
+    color: rgba(255,255,255,0.3);
+    @include position(absolute, 0 auto auto 5px, auto);
+  }
+  &__controls { list-style-type: none; margin: 0 -15px -6px; align-self: flex-end; @include flex(center) }
+  &__control {
+    &--disabled { opacity: 0; pointer-events: none; }
+    font-size: 1.4rem;
+    padding: 6px;
+    margin: 0 15px;
+    border-radius: 99px;
+    transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease, opacity $slow-speed $normal-ease;
+    &:hover, &:active { color: color($blue-grey, 100); transform: scale3d(1.4, 1.4, 1.4) }
+  }
+  &__wrapper {
+    &--content { flex-grow: 1; margin-top: 30px; overflow-y: auto }
+    &--item-link { @include flex(column); }
+  }
+  &__content { flex-wrap: wrap; @include flex(space-between, flex-start) }
+  &__item {
+    width: 48%;
+    margin-bottom: 40px;
+    &-header { font-size: 1.5rem; letter-spacing: 0.02rem; }
+    &-sideheader { font-weight: normal }
+    &-subheader {
+      font-size: 1rem;
+      color: color($blue-grey, 100);
+      font-weight: normal;
+      margin: 2px 0 10px;
+    }
+    &-text {
+      width: 80%;
+    }
+    &-list {
+      margin: 5px 1px 0;
+      padding-left: 15px;
+      list-style-type: none;
+      border-left: 4px solid white;
+      transition: color $slow-speed $normal-ease;
+      &:hover { color: color($blue-grey, 100) }
+    }
+    &-list-item {
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: color $slow-speed $normal-ease;
+      &:hover { color: white }
+    }
+    &-link-header {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: color($blue-grey, 100);
+      letter-spacing: 0.06rem;
+    }
+    &-link {
+      color: white;
+      margin-top: 4px;
+      font-size: 0.95rem;
+      transition: color $slow-speed $normal-ease;
+      &:hover, &:active { color: color($blue-grey, 100) }
+    }
+  }
+}
+
+// Transitions
+.work {
+  $self: &;
+  animation: work $page-speed $enter-ease backwards;
+  @keyframes work { from { opacity: 0 } to { opacity: 1 } }
+
+  &__head {
+    animation: work__head $page-speed $enter-ease backwards;
+    @keyframes work__head {
+      from { transform: translate3d(0, -40px, 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
   }
 
-  &__item {
-    font-size: 1.1rem;
-    padding: 0 2px 4px;
-    margin: 0 15px;
-    cursor: pointer;
-    position: relative;
-
-    &::after {
-      content: "";
-      width: 100%;
-      height: 1px;
-      background-color: white;
-      transform: scale3d(0, 1, 1);
-      transition: transform $slow-speed $normal-ease;
-      @include position(absolute, auto auto 0);
+  &__content {
+    animation: work__content $page-speed $enter-ease backwards;
+    @keyframes work__content {
+      from { transform: translate3d(0, 40px, 0); }
+      to { transform: translate3d(0, 0, 0); }
     }
-    &--active::after { transform: scale3d(1, 1, 1) }
+  }
+
+  &--fade {
+    opacity: 0;
+    transition: opacity $page-speed $normal-ease;
+    & #{ $self } {
+      &__head, &__content { transition: transform $page-speed $normal-ease }
+      &__head { transform: translate3d(0, -40px, 0) }
+      &__content { transform: translate3d(0, 40px, 0) }
+    }
   }
 }

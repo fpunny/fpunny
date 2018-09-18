@@ -29,7 +29,7 @@ const store = createStore(
 export const PAGES = [
   { text: "Home", path: "/", loader: Home },
   { text: "About", path: "/about", loader: About },
-  { text: "Work", path: "/work", loader: Work },
+  { text: "Resume", path: "/work", loader: Work },
   { text: "Contact", path: "/contact", loader: Contact }
 ];
 export const TRANSITION_DELAY = 600;
