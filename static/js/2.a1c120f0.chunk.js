@@ -1,2 +1,0 @@
-webpackJsonp([2],{139:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var o=n(0),s=n.n(o),c=n(22),a=n(146),r=(n.n(a),function(){return s.a.createElement(c.b,{className:"contact"},"Contact")});t.default=r},146:function(e,t,n){var o=n(147);"string"===typeof o&&(o=[[e.i,o,""]]);var s={hmr:!1};s.transform=void 0;n(135)(o,s);o.locals&&(e.exports=o.locals)},147:function(e,t,n){t=e.exports=n(134)(!0),t.push([e.i,"","",{version:3,sources:[],names:[],mappings:"",file:"contact.css",sourceRoot:""}])}});
-//# sourceMappingURL=2.a1c120f0.chunk.js.map
