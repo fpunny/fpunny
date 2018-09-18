@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Nav, Async, Footer } from '../components';
-import { PAGES, TRANSITION_DELAY } from '..';
+import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/index.css';
 
 const len = process.env.PUBLIC_URL.length;

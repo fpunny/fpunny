@@ -25,7 +25,7 @@
     &:hover, &:active { color: color($blue-grey, 100); transform: scale3d(1.4, 1.4, 1.4) }
   }
   &__wrapper {
-    &--content { flex-grow: 1; margin-top: 30px; overflow-y: auto }
+    &--content { flex-grow: 1; margin-top: 30px; overflow-y: auto; overflow-x: hidden }
     &--item-link { @include flex(column); }
   }
   &__content { flex-wrap: wrap; @include flex(space-between, flex-start) }
@@ -52,10 +52,10 @@
       &:hover { color: color($blue-grey, 100) }
     }
     &-list-item {
-      margin-bottom: 6px;
+      padding-bottom: 6px;
       cursor: pointer;
-      transition: color $slow-speed $normal-ease;
-      &:hover { color: white }
+      transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease;
+      &:hover { color: white; transform: translate3d(6px, 0, 0) }
     }
     &-link-header {
       margin-top: 10px;
@@ -70,6 +70,20 @@
       font-size: 0.95rem;
       transition: color $slow-speed $normal-ease;
       &:hover, &:active { color: color($blue-grey, 100) }
+    }
+  }
+}
+
+// Shifts
+.work {
+  $self: &;
+  &__content { transition: opacity $page-speed $normal-ease }
+  &__topic { transition: opacity $page-speed $normal-ease, transform $page-speed $normal-ease }
+  &--shift {
+    & #{ $self } {
+      &__topic, &__content { opacity: 0 }
+      &__topic { transform: translate3d(40px, 0, 0) }
+      &__content {  }
     }
   }
 }

@@ -5,7 +5,7 @@ import '../styles/pages/home.css';
 import { Link } from '../components';
 
 const Home = () => (
-  <Page style={{ backgroundImage: `url('${ Back }')` }} className="home">
+  <Page style={{ backgroundImage: `url('${ Back }')` }} block="home">
     <div className="home__text">
       <h1 className="home__header">Frederic Pun</h1>
       <span className="home__subheader">Yet Another Full-stack Web Developer</span>

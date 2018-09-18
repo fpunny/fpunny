@@ -1,3 +1,14 @@
+import { Home, About, Work, Contact } from './pages';
+
+export const PAGES = [
+  { text: "Home", path: "/", loader: Home },
+  { text: "About", path: "/about", loader: About },
+  { text: "Resume", path: "/work", loader: Work },
+  { text: "Contact", path: "/contact", loader: Contact }
+];
+
+export const TRANSITION_DELAY = 600;
+
 export const WORK = [
   {
     title: "Skills",

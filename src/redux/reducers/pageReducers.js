@@ -2,9 +2,7 @@ import { TOGGLE_FADE, LOADED } from '../actions/page';
 
 const PAGE_DEFAULT = {
   fade: false,
-  loaded: {
-
-  }
+  loaded: {}
 }
 
 export const page = (state = PAGE_DEFAULT, action) => {

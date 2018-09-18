@@ -3,7 +3,7 @@ import { Page } from '../containers';
 import '../styles/pages/contact.css';
 
 const Contact = () => (
-  <Page className="contact">
+  <Page block="contact">
     Contact
   </Page>
 )

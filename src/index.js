@@ -9,7 +9,6 @@ import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-reac
 import thunk from 'redux-thunk';
 
 import * as Reducers from './redux/reducers';
-import { Home, About, Work, Contact } from './pages';
 import { App } from './containers';
 
 const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
@@ -25,14 +24,6 @@ const store = createStore(
     )
   )
 );
-
-export const PAGES = [
-  { text: "Home", path: "/", loader: Home },
-  { text: "About", path: "/about", loader: About },
-  { text: "Resume", path: "/work", loader: Work },
-  { text: "Contact", path: "/contact", loader: Contact }
-];
-export const TRANSITION_DELAY = 600;
 
 ReactDOM.render(
 <Provider store={store}>

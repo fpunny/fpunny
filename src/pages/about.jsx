@@ -3,7 +3,7 @@ import { Page } from '../containers';
 import '../styles/pages/about.css';
 
 const About = () => (
-  <Page className="about">
+  <Page block="about">
     <h1 className="about__header">About Me</h1>
     <section className="about__content">
       <h2 className="about__subheader">Professional</h2>

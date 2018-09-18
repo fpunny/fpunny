@@ -16,8 +16,8 @@ class _Page extends Component {
   }
 
   render() {
-    const { className, style, fade, children } = this.props;
-    return <main style={style} className={`page ${className}${fade? ` ${className}--fade`: ""}`}>
+    const { block, className, style, fade, children } = this.props;
+    return <main style={style} className={`page ${block}${fade? ` ${block}--fade`: ""}${className? ` ${className}`: ""}`}>
       { children }
     </main>
   }
