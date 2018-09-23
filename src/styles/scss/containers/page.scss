@@ -12,6 +12,7 @@
 
 @include tablet {
   .page {
-    padding: 90px 7% 40px
+    justify-content: flex-start;
+    padding: 90px 7% 40px;
   }
 }

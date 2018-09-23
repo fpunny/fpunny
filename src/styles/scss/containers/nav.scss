@@ -35,8 +35,15 @@
     width: 30px;
     height: 2px;
     padding: 0;
+    transition: transform $slow-speed $normal-ease;
     background-color: white;
     margin: 3px 0;
+    &--second { transition: transform $slow-speed $normal-ease, opacity $slow-speed $normal-ease; }
+    #{ $self }--show & {
+      &--first { transform: translate3d(0, 8px, 0) rotate(225deg) }
+      &--second { opacity: 0; transform: rotate(360deg) }
+      &--third { transform: translate3d(0, -8px, 0) rotate(-225deg) }
+    }
   }
 
   &__logo {

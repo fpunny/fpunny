@@ -3,7 +3,7 @@
 
 .contact {
   $self: &;
-  &__header {}
+  &__header { padding-top: 20px; }
   &__text {
     color: color($grey, 200);
     font-size: 0.9rem;
@@ -45,6 +45,48 @@
 
 @include phone {
   .contact {
+    justify-content: flex-start;
     &__item { margin: 0 0 16px; }
+  }
+}
+
+// Animations
+.contact {
+  $self: &;
+  animation: contact $page-speed $enter-ease backwards;
+  @keyframes contact {
+    from { opacity: 0 } to { opacity: 1 }
+  }
+  &__header {
+    animation: contact__header $page-speed $enter-ease backwards;
+    @keyframes contact__header {
+      from { transform: translate3d(0, -40px, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+  &__items {
+    animation: contact__items $page-speed $enter-ease backwards;
+    @keyframes contact__items {
+      from { transform: translate3d(-40px, 0, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+  &__content {
+    animation: contact__content $page-speed $enter-ease backwards;
+    @keyframes contact__content {
+      from { transform: translate3d(0, 40px, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+
+  &--fade {
+    transition: opacity $page-speed $exit-ease;
+    opacity: 0;
+    & #{ $self } {
+      &__header, &__items, &__content { transition: transform $page-speed $normal-ease }
+      &__header { transform: translate3d(0, -40px, 0) }
+      &__items { transform: translate3d(-40px, 0, 0) }
+      &__content { transform: translate3d(0, 40px, 0) }
+    }
   }
 }

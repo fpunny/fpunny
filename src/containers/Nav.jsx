@@ -36,7 +36,7 @@ class _Nav extends PureComponent {
 
   render() {
     const { items, active, show, scrolled } = this.props;
-    return <nav className={`nav${scrolled? " nav--scrolled": ""}`}>
+    return <nav className={`nav${scrolled? " nav--scrolled": ""}${show? " nav--show": ""}`}>
       <div className="nav__wrapper--logo">
         <Link to="/" className="nav__logo" isActive={active === "/"}>
           <img className="nav__logo-image" src={LogoWhiteText} width="70" height="70" alt="Logo" />
