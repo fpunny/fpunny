@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Nav, Async, Footer } from '../components';
+import { Async } from '../components';
+import { Nav, Footer } from '../containers';
 import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/index.css';
 
@@ -27,3 +28,5 @@ export class App extends Component {
     );
   }
 }
+
+export default App;

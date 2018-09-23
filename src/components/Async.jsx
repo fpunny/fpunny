@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { loaded } from '../redux/actions/page';
 import '../styles/components/async.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPath } from '../containers';
 
-const MIN_LOAD_TIME = 1000;
-class _Async extends Component {
+const MIN_LOAD_TIME = 600;
+class _Async extends PureComponent {
   
   state = {
     Component: null

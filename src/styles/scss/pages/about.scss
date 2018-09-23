@@ -3,10 +3,19 @@
 
 .about {
   &__content { padding-top: 35px; @include flex(flex-start, space-between) }
-  &__subheader { width: 200px }
+  &__subheader { width: 200px; letter-spacing: 0.03rem }
   &__text { width: 80% }
   &__emoji { font-size: 0.8rem }
   &__line { padding-bottom: 15px; color: rgba(255, 255, 255, 0.8) }
+}
+
+@include tablet {
+  .about {
+    &__content { flex-direction: column }
+    &__text { width: 100% }
+    &__subheader { width: 100%; margin-bottom: 10px }
+    &__line { margin-left: 16px }
+  }
 }
 
 // Animations
@@ -32,7 +41,7 @@
   }
 
   &__text {
-        animation: about__text $page-speed $enter-ease backwards;
+    animation: about__text $page-speed $enter-ease backwards;
     @keyframes about__text {
       from { transform: translate3d(40px, 0, 0) }
       to { transform: translate3d(0, 0, 0) }

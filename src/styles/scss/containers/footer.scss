@@ -24,8 +24,8 @@
   &__link {
     text-decoration: none;
     color: white;
-    transition: color $normal-speed $normal-ease;
-    &:hover { color: color($blue-grey, 100) }
+    transition: color $slow-speed $normal-ease;
+    &:hover { color: color($grey, 400) }
   }
 
   &__icon {
@@ -37,6 +37,9 @@
 
 // Animations
 .footer {
+  transition: transform $page-speed $normal-ease, opacity $page-speed $normal-ease;
+  @include tablet { transform: translate3d(0, 100%, 0); opacity: 0 }
+
   &__section {
     &--contact {
       animation: contact $page-speed $enter-ease backwards;

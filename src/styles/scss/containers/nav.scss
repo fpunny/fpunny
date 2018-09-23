@@ -3,7 +3,7 @@
 
 .nav {
   $self: &;
-  z-index: 999;
+  z-index: 50;
   padding: 14px $site-padding 2px;
   animation: nav-drop $page-speed $enter-ease backwards;
   @keyframes nav-drop {
@@ -12,14 +12,31 @@
   @include flex(flex-start, center);
   @include position(fixed, 0 auto auto, 0, 0, auto, 0);
 
-  &__link, &__logo {
-    text-decoration: none;
-    color: inherit;
+  &__link { padding: 0 4px }
+  &__link, &__logo { text-decoration: none; color: inherit }
+  &__wrapper {
+    &--logo { margin-right: auto; z-index: 61 }
+  }
+
+  &__menu {
+    margin-right: 20px;
+    z-index: 61;
+    background: none;
+    border: none;
+    display: none;
+  }
+
+  &__bar {
+    width: 30px;
+    height: 2px;
+    padding: 0;
+    background-color: white;
+    margin: 3px 0;
   }
 
   &__logo {
-    @include flex(center);
     padding-left: 15px;
+    @include flex(center);
     &-image {
       width: 70px;
       height: auto;
@@ -53,14 +70,11 @@
     &--active::after { transform: scale3d(1, 1, 1) }
     &:not(&--active):hover { color: color($blue-grey, 100) }
   }
+}
 
-  &__link {
-    padding: 0 4px;
-  }
-
-  &__wrapper {
-    &--logo {
-      margin-right: auto;
-    }
+@include tablet {
+  .nav {
+    &__menu { @include flex(column, center); }
+    &__items { display: none }
   }
 }

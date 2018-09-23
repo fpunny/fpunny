@@ -7,6 +7,13 @@ export const PAGES = [
   { text: "Contact", path: "/contact", loader: Contact }
 ];
 
+export const INFO = {
+  Facebook: { type: "b", icon: "facebook", link: "https://www.facebook.com/fredericpun" },
+  Linkedin: { type: "b", icon: "linkedin", link: "https://www.linkedin.com/in/fredericpun" },
+  Github: { type: "b", icon: "github", link: "https://github.com/fpunny" },
+  Email: { type: "s", icon: "envelope", link: "mailto:frederic.pun@gmail.com", text: "frederic.pun@gmail.com" }
+}
+
 export const TRANSITION_DELAY = 600;
 
 export const WORK = [

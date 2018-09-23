@@ -1,2 +1,42 @@
 @import '../mixins';
 @import '../variables';
+
+.contact {
+  $self: &;
+  &__header {}
+  &__text {
+    color: color($grey, 200);
+    font-size: 0.9rem;
+  }
+  &__items {
+    list-style-type: none;
+    color: white;
+    margin: 22px 0 12px;
+    flex-wrap: wrap;
+    @include flex;
+  }
+  &__item {
+    margin: 0 14px 16px;
+    padding-right: 20px;
+    &-link {
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: inherit;
+      transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease;
+      &:hover {
+        color: color($grey, 300);
+      }
+    }
+    &-header {
+      font-size: 0.85rem;
+      letter-spacing: 0.06rem;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+@include tablet {
+  .contact {
+    &__items { flex-direction: column }
+  }
+}

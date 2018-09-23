@@ -1,0 +1,63 @@
+@import '../mixins';
+@import '../variables';
+
+.mobile {
+  height: 100%;
+  width: 100%;
+  display: none;
+  z-index: 60;
+  color: white;
+  box-sizing: border-box;
+  opacity: 0;
+  flex-direction: column;
+  transform: translate3d(100%, 0, 0);
+  padding: 100px $site-padding 25px;
+  background-color: color($grey, 900);
+  @include position(fixed);
+
+  &__items {
+    list-style-type: none;
+    font-size: 2rem;
+    color: color($grey, 600);
+    transition: color $normal-speed $normal-ease;
+  }
+  &__item {
+    text-align: right;
+    cursor: pointer;
+    margin: 20px;
+    transition: color $normal-speed $normal-ease, transform $normal-speed $normal-ease;
+    &:hover, &--active { color: white }
+    &:hover { transform: translate3d(-6px, 0, 0) }
+  }
+  &__content { flex-wrap: wrap; margin-top: auto; padding: 10px; @include flex }
+  &__section {
+    &--left { margin-right: auto; margin-bottom: 6px; padding-right: 20px; @include flex(column) }
+    &--right { margin-left: -8px; list-style-type: none; flex-shrink: 0; @include flex }
+  }
+  &__header { font-size: 0.76rem; font-weight: bold; letter-spacing: 0.04rem }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color $slow-speed $normal-ease;
+    &--email {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+    &:hover {
+      color: color($grey, 400);
+    }
+  }
+  &__icon-item { margin: 2px 8px;  }
+  &__icon { font-size: 1.3rem }
+}
+
+@include tablet {
+  .mobile {
+    display: flex;
+    transition: transform $page-speed $normal-ease, opacity $page-speed $normal-ease;
+    &--show {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
