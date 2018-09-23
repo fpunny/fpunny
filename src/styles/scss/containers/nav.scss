@@ -5,12 +5,17 @@
   $self: &;
   z-index: 50;
   padding: 14px $site-padding 2px;
+  transition: background-color $slow-speed $normal-ease;
   animation: nav-drop $page-speed $enter-ease backwards;
   @keyframes nav-drop {
     from { transform: translate3d(0, -100%, 0) } to { transform: translate3d(0, 0, 0) }
   }
   @include flex(flex-start, center);
   @include position(fixed, 0 auto auto, 0, 0, auto, 0);
+
+  &--scrolled {
+    background-color: color($grey, 900);
+  }
 
   &__link { padding: 0 4px }
   &__link, &__logo { text-decoration: none; color: inherit }
@@ -35,7 +40,7 @@
   }
 
   &__logo {
-    padding-left: 15px;
+    padding-left: 10px;
     @include flex(center);
     &-image {
       width: 70px;
@@ -74,7 +79,16 @@
 
 @include tablet {
   .nav {
+    padding: 14px 14px 2px;
     &__menu { @include flex(column, center); }
     &__items { display: none }
+  }
+}
+
+@include phone {
+  .nav {
+    &__logo-image {
+      width: 60px;
+    }
   }
 }

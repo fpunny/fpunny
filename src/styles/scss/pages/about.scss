@@ -18,6 +18,12 @@
   }
 }
 
+@include phone {
+  .about {
+    &__content { padding-top: 10px }
+  }
+}
+
 // Animations
 .about {
   $self: &;

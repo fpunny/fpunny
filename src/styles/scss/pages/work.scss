@@ -2,6 +2,7 @@
 @import '../variables';
 
 .work {
+  justify-content: flex-start;
   padding: 140px 7% 90px;
   &__head { position: relative; flex-shrink: 0; @include flex(flex-start, center) }
   &__header { margin-right: auto; font-size: 2.2rem; }
@@ -14,21 +15,27 @@
     color: rgba(255,255,255,0.3);
     @include position(absolute, 0 auto auto 5px, auto);
   }
-  &__controls { list-style-type: none; margin: 0 -15px -6px; align-self: flex-end; @include flex(center) }
+  &__controls {
+    list-style-type: none;
+    z-index: 5;
+    margin: 0 -15px -6px;
+    align-self: flex-end;
+    @include flex(center)
+  }
   &__control {
     &--disabled { opacity: 0; pointer-events: none; }
     font-size: 1.4rem;
     padding: 6px;
+    cursor: pointer;
     margin: 0 15px;
     border-radius: 99px;
     transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease, opacity $slow-speed $normal-ease;
     &:hover, &:active { color: color($blue-grey, 100); transform: scale3d(1.4, 1.4, 1.4) }
   }
   &__wrapper {
-    &--content { flex-grow: 1; margin-top: 30px; overflow-y: auto; overflow-x: hidden }
     &--item-link { @include flex(column); }
   }
-  &__content { flex-wrap: wrap; @include flex(space-between, flex-start) }
+  &__content { flex-wrap: wrap; padding-top: 30px; @include flex(space-between, flex-start) }
   &__item {
     width: 48%;
     margin-bottom: 40px;
@@ -73,20 +80,28 @@
 
 @include tablet {
   .work {
+    padding: 120px 7% 20px;
     &__content { flex-direction: column }
-    &__item { width: 100% }
+    &__item, &__item-text { width: 100% }
+  }
+}
+
+@include phone {
+  .work {
+    &__topic { padding-bottom: 4px; font-size: 3.4rem }
+    &__item { margin-bottom: 30px }
   }
 }
 
 // Shifts
 .work {
   $self: &;
-  &__wrapper--content, &__topic { transition: opacity $page-speed $normal-ease, transform $page-speed $normal-ease }
+  &__content, &__topic { transition: opacity $page-speed $normal-ease, transform $page-speed $normal-ease }
   &--shift {
     & #{ $self } {
-      &__topic, &__wrapper--content { opacity: 0 }
+      &__topic, &__content { opacity: 0 }
       &__topic { transform: translate3d(40px, 0, 0) }
-      &__wrapper--content { transform: translate3d(-40px, 0, 0) }
+      &__content { transform: translate3d(-40px, 0, 0) }
     }
   }
 }

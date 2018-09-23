@@ -6,5 +6,12 @@
   color: white;
   position: relative;
   padding: 0 7%;
+  overflow: hidden;
   @include flex(column, center, flex-start);
+}
+
+@include tablet {
+  .page {
+    padding: 90px 7% 40px
+  }
 }

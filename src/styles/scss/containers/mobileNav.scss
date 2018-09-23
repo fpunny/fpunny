@@ -11,7 +11,7 @@
   opacity: 0;
   flex-direction: column;
   transform: translate3d(100%, 0, 0);
-  padding: 100px $site-padding 25px;
+  padding: 100px 20px 25px;
   background-color: color($grey, 900);
   @include position(fixed);
 
@@ -29,6 +29,7 @@
     &:hover, &--active { color: white }
     &:hover { transform: translate3d(-6px, 0, 0) }
   }
+  
   &__content { flex-wrap: wrap; margin-top: auto; padding: 10px; @include flex }
   &__section {
     &--left { margin-right: auto; margin-bottom: 6px; padding-right: 20px; @include flex(column) }

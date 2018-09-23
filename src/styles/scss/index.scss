@@ -7,14 +7,21 @@
   font-family: $body-font;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font;
+h1, h2, h3, h4, h5, h6 { font-family: $header-font }
+body {
+  max-height: 100vh;
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: color($grey, 800);
+    &-thumb {
+      background: color($grey, 300);
+    }
+  }
 }
 
 #root {
   min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: color($grey, 900);
   @include flex(column);
 }

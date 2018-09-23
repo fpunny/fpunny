@@ -41,6 +41,15 @@
   }
 }
 
+@include phone {
+  .home {
+    &__header {
+      font-size: 3rem;
+      margin-bottom: 2px;
+    }
+  }
+}
+
 // Animations
 .home {
   $self: &;

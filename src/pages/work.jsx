@@ -38,11 +38,9 @@ class Work extends Component {
           </li>
         </ul>
       </div>
-      <div className="work__wrapper--content">
-        <section className="work__content">
-          { data.map((item, key) => this.build(item, key)) }
-        </section>
-      </div>
+      <section className="work__content">
+        { data.map((item, key) => this.build(item, key)) }
+      </section>
     </Page>
   }
 

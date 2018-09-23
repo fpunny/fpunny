@@ -8,6 +8,8 @@ class _Page extends Component {
 
   componentDidMount() {
     const { fade, toggleFade } = this.props;
+    const Y = window.scrollY;
+    if (Y !== 0) { window.scrollTo(0, 0) }
     if (fade) { toggleFade(false) }
   }
 

@@ -5,15 +5,38 @@ import { connect } from 'react-redux';
 import { LogoWhiteText } from '../assets';
 import { MobileNav } from '.';
 import { Link } from '../components';
+import { toggleNav } from '../redux/actions/nav';
 import '../styles/containers/nav.css';
 
+const DELTA = 10;
 class _Nav extends PureComponent {
 
+  scrolled = false;
   toggleNav = () => this.props.toggleMobile();
+  handleScroll = (e) => {
+    const { toggleNav } = this.props;
+    const Y = e.currentTarget.scrollY;
+
+    if (!this.scrolled && Y > DELTA) {
+      this.scrolled = true;
+      toggleNav(true);
+    } else if (this.scrolled && Y <= DELTA) {
+      this.scrolled = false;
+      toggleNav(false);
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 
   render() {
-    const { items, active, show } = this.props;
-    return <nav className="nav">
+    const { items, active, show, scrolled } = this.props;
+    return <nav className={`nav${scrolled? " nav--scrolled": ""}`}>
       <div className="nav__wrapper--logo">
         <Link to="/" className="nav__logo" isActive={active === "/"}>
           <img className="nav__logo-image" src={LogoWhiteText} width="70" height="70" alt="Logo" />
@@ -42,11 +65,13 @@ class _Nav extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  show: state.nav.show
+  show: state.nav.show,
+  scrolled: state.nav.scrolled
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleMobile
+  toggleMobile,
+  toggleNav
 }, dispatch);
 
 export const Nav = connect(mapStateToProps, mapDispatchToProps)(_Nav);

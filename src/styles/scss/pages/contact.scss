@@ -17,6 +17,8 @@
   }
   &__item {
     margin: 0 14px 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding-right: 20px;
     &-link {
       text-decoration: none;
@@ -38,5 +40,11 @@
 @include tablet {
   .contact {
     &__items { flex-direction: column }
+  }
+}
+
+@include phone {
+  .contact {
+    &__item { margin: 0 0 16px; }
   }
 }
