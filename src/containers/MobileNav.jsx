@@ -30,9 +30,9 @@ class _MobileNav extends PureComponent {
         </div>
         <ul className="mobile__section mobile__section--right">
           {
-            ICONS.map(({ type, icon, link }, key) =>
+            ICONS.map(({ type, icon, link, alt }, key) =>
               <li key={key} className="mobile__icon-item">
-                <a className="mobile__link" href={link}>
+                <a className="mobile__link" aria-label={alt} href={link}>
                   <i className={`mobile__icon fa${type} fa-${icon}`} />
                 </a>
               </li>

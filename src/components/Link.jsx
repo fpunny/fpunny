@@ -7,8 +7,8 @@ import { toggleFade } from '../redux/actions/page';
 
 export class __Link extends PureComponent {
   render () {
-    const { to, className, children } = this.props;
-    return <Link to={to} className={className} onClick={this.click}>
+    const { to, className, children, alt } = this.props;
+    return <Link to={to} aria-label={alt} className={className} onClick={this.click}>
       {children}
     </Link>
   }

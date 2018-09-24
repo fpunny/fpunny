@@ -11,7 +11,7 @@ const Home = () => (
       <span className="home__subheader">Yet Another Full-stack Web Developer</span>
     </div>
     <div className="home__wrapper--button">
-      <Link to="/about" className="home__button">Learn More</Link>
+      <Link to="/about" alt="To about me page" className="home__button">Learn More</Link>
     </div>
   </Page>
 )

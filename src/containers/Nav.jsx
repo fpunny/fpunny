@@ -42,7 +42,7 @@ class _Nav extends PureComponent {
           <img className="nav__logo-image" src={LogoWhiteText} width="70" height="70" alt="Logo" />
         </Link>
       </div>
-      <button onClick={this.toggleNav} className="nav__menu">
+      <button aria-label="Navigation menu" type="button" onClick={this.toggleNav} className="nav__menu">
         <span className="nav__bar nav__bar--first" />
         <span className="nav__bar nav__bar--second" />
         <span className="nav__bar nav__bar--third" />
