@@ -5,8 +5,11 @@
   $self: &;
   box-sizing: border-box;
   padding: 12px $site-padding 24px;
+  transition: color $slow-speed $normal-ease;
   @include position(fixed, auto auto 0, auto, 0, 0, 0);
   @include flex(flex-start, center);
+
+  &--scrolled { background-color: color($grey, 900) }
 
   &__section {
     &--contact { margin-right: auto; color: white; @include flex(column) }
