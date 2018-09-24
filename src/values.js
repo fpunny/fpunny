@@ -27,6 +27,7 @@ export const WORK = [
           "Redux + React Router",
           "Typescript",
           "SASS BEM",
+          "Bootstrap + QJuery",
           "HTML5/CSS3/Javascript ES6",
           "Webpack + Babel"
         ]
@@ -108,11 +109,55 @@ export const WORK = [
         href: "https://github.com/orgs/hackthevalley"
       },
       {
+        header: "Personal Website V4",
+        sideheader: "Creator",
+        subheader: "September 2018",
+        body: "Personal websites are created by me to consolidate and demostrate my skills and growth. This is created using CRA, React Router, Redux, and SASS using BEM.",
+        href: "https://github.com/fpunny/fpunny"
+      },
+      {
         header: "HowlPlay",
         sideheader: "Engineer",
         subheader: "January 2018 - May 2018, University of Toronto Scarborough",
         body: "Collaborated in a team of 8 to create an open-source, real-time quiz game targeted towards hackathons. This was made in four applications - API for quiz information, websocket server to run the game instance, React app for quiz management, and React app quiz participation.",
         href: "https://github.com/orgs/wolfbeacon"
+      },
+      {
+        header: "CSCB20 Final Assignment",
+        sideheader: "Student",
+        subheader: "March 2018",
+        body: "Created an grading platform similar to Blackboard using PHP, HTML, CSS, and Javascript. This project demostrates my skills without using frameworks to create an MVC application with an REST API and interactive front-end.",
+        href: "https://github.com/fpunny/cscb20-a3"
+      },
+      {
+        header: "Electric City Hacks II - Buddy Bot",
+        sideheader: "Full-stack Developer",
+        subheader: "November 2017, Trent University",
+        body: "Developed an AI bot for Facebook Messenger which understands natural language using wit.ai in 37 hours, awarded for being of the top 15 teams at the event.",
+        href: "https://devpost.com/software/buddy-bot"
+      }
+    ]
+  },
+  {
+    title: "Volunteer",
+    data: [
+      {
+        header: "Ladies Learning Code",
+        sideheader: "Mentor",
+        subheader: "June 2018 & September 2018",
+        body: "Provided mentoring for a one mentor to four learner ratio group on multi-page websites and Chrome web extensions."
+      },
+      {
+        header: "Hack The Valley I & II",
+        sideheader: "Volunteer",
+        subheader: "February 2017 & 2018",
+        body: "36-hour hackathon at the University of Toronto Scarborough with 300 participants. Assisted in registration, management of MLH hardware lab, and mentoring for web technologies and Android."
+      },
+      {
+        header: "UTSC + Ryerson Local Hack Day",
+        sideheader: "Judge & Volunteer",
+        subheader: "December 2017",
+        body: "A 12-hour event to celebrate learning, building, and sharing worldwide. Assisted in the judging process, mentoring for web technologies such as HTML/CSS, Javascript, and Chrome extensions; and leading workshop on Cockroach DB on NodeJS."
       }
     ]
   }
