@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { INFO } from '../values';
 import '../styles/containers/footer.css';
 
@@ -9,8 +8,8 @@ const ICONS = [
   INFO.Github
 ]
 
-const _Footer = ({ scrolled }) => (
-  <footer className={`footer${scrolled? " footer--scrolled": ""}`}>
+export const Footer = () => (
+  <footer className="footer">
     <div className="footer__section footer__section--contact">
       <span className="footer__header">Let's get in touch</span>
       <a className="footer__link footer__link--email" href={ INFO.Email.link }>{ INFO.Email.text }</a>
@@ -28,9 +27,3 @@ const _Footer = ({ scrolled }) => (
     </ul>
   </footer>
 )
-
-const mapStateToProps = state => ({
-  scrolled: state.nav.scrolled
-});
-
-export const Footer = connect(mapStateToProps)(_Footer);

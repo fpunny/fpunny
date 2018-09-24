@@ -21,7 +21,8 @@ body {
 
 #root {
   min-height: 100vh;
-  overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
   background-color: color($grey, 900);
   @include flex(column);
 }
