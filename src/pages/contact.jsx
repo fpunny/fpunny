@@ -19,8 +19,8 @@ const Contact = () => (
     <h1 className="contact__header">Contact</h1>
     <ul className="contact__items">{ ITEMS.map(LIST_ITEM) }</ul>
     <div className="contact__content">
-      <p className="contact__text">Professional or casual, I'm always looking forward to talk about anything.</p>
-      <p className="contact__text">Just leave me a message, and I'll try to reply ASAP.</p>
+      <p className="contact__text">I'm always open to talk about anything from internships to just a simple hello.</p>
+      <p className="contact__text">Just leave me a message, and I'll reply as soon as possible.</p>
     </div>
   </Page>
 )
