@@ -1,0 +1,60 @@
+@import '../mixins';
+@import '../variables';
+
+.notfound {
+  justify-content: center;
+  &__link {
+    margin-top: 15px;
+    margin-right: auto;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 1px solid white;
+    transition:
+      transform $page-speed $normal-ease,
+      border-color $slow-speed $normal-ease,
+      background-color $slow-speed $normal-ease,
+      color $slow-speed $normal-ease
+    ;
+    &:hover {
+      background-color: white;
+      color: color($grey, 900);
+    }
+    &:active {
+      border-color: color($grey, 400);
+      background-color: color($grey, 400);
+    }
+  }
+}
+
+// Animations
+.notfound {
+  $self: &;
+  animation: notfound $page-speed $enter-ease backwards;
+  @keyframes notfound {
+    from { opacity: 0 } to { opacity: 1 }
+  }
+  &__content {
+    animation: notfound__content $page-speed $enter-ease backwards;
+    @keyframes notfound__content {
+      from { transform: translate3d(0, -40px, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+  &__link {
+    animation: notfound__link $page-speed $enter-ease backwards;
+    @keyframes notfound__link {
+      from { transform: translate3d(0, 40px, 0) }
+      to { transform: translate3d(0, 0, 0) }
+    }
+  }
+
+  &--fade {
+    transition: opacity $page-speed $normal-ease;
+    opacity: 0;
+    & #{ $self } {
+      &__content { transition: transform $page-speed $normal-ease; transform: translate3d(0, -40px, 0) }
+      &__link { transform: translate3d(0, 40px, 0) }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPath } from '../containers';
 
-const MIN_LOAD_TIME = 600;
+const MIN_LOAD_TIME = 500;
 class _Async extends PureComponent {
   
   state = {

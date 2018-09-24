@@ -14,7 +14,7 @@ export const INFO = {
   Email: { type: "s", icon: "envelope", link: "mailto:frederic.pun@gmail.com", text: "frederic.pun@gmail.com", alt: "Link to send an email to Frederic Pun" }
 }
 
-export const TRANSITION_DELAY = 600;
+export const TRANSITION_DELAY = 500;
 
 export const WORK = [
   {

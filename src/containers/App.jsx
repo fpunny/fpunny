@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Async } from '../components';
 import { Nav, Footer } from '../containers';
+import { NotFound } from '../pages';
 import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/index.css';
 
@@ -21,7 +22,7 @@ export class App extends Component {
               <Route path={path} key={key} component={() => <Async loader={loader}/>} exact/>
             )
           }
-          <Route path="/TEST" coamponent={() => <Async/>} exact/>
+          <Route component={() => <Async loader={NotFound}/>} exact/>
         </Switch>
         <Footer/>
       </Fragment>
