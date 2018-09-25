@@ -1,7 +1,7 @@
 {
   "name": "fpunny-personal-v4",
   "version": "1.0.0",
-  "homepage": "http://fpunny.com",
+  "homepage": "https://fpunny.com",
   "private": true,
   "dependencies": {
     "connected-react-router": "^4.4.1",
