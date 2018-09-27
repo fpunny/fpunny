@@ -1,16 +1,17 @@
 import React from 'react';
+import { HiddenLink } from '../components';
 import { Page } from '../containers';
 import { INFO } from '../values';
 import '../styles/pages/contact.css';
 
 const ITEMS = Object.keys(INFO);
 const LIST_ITEM = (tag, key) => {
-  const { link, text } = INFO[tag];
+  const { link, text, alt } = INFO[tag];
   return <li className="contact__item" key={key}>
     <h2 className="contact__item-header">{ tag }</h2>
-    <a className="contact__item-link" href={link}>
+    <HiddenLink className="contact__item-link" alt={alt} href={link}>
       { text ? text : link }
-    </a>
+    </HiddenLink>
   </li>
 }
 

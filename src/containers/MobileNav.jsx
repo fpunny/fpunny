@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { INFO } from '../values';
-import { Link } from '../components';
+import { Link, HiddenLink } from '../components';
 import '../styles/containers/mobileNav.css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -32,9 +32,9 @@ class _MobileNav extends PureComponent {
           {
             ICONS.map(({ type, icon, link, alt }, key) =>
               <li key={key} className="mobile__icon-item">
-                <a className="mobile__link" aria-label={alt} href={link}>
+                <HiddenLink className="mobile__link" aria-label={alt} href={link}>
                   <i className={`mobile__icon fa${type} fa-${icon}`} />
-                </a>
+                </HiddenLink>
               </li>
             )
           }
