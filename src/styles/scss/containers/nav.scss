@@ -87,7 +87,11 @@
 @include tablet {
   .nav {
     padding: 14px 14px 2px;
-    &__menu { @include flex(column, center); }
+    &--show ~ .page { 
+      transform: translate3d(-100%, 0, 0); 
+      opacity: 0;
+    }
+    &__menu { @include flex(column, center) }
     &__items { display: none }
   }
 }

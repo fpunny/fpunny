@@ -2,6 +2,7 @@
 @import '../variables';
 
 .work {
+  $self: &;
   justify-content: flex-start;
   padding: 140px 7% 90px;
   &__head { position: relative; flex-shrink: 0; @include flex(flex-start, center) }
@@ -24,16 +25,33 @@
   }
   &__control {
     &--disabled { opacity: 0; pointer-events: none; }
-    font-size: 1.4rem;
     padding: 6px;
+    font-size: 0.95rem;
     cursor: pointer;
     margin: 0 15px;
     border-radius: 99px;
-    transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease, opacity $slow-speed $normal-ease;
-    &:hover, &:active { color: color($blue-grey, 100); transform: scale3d(1.4, 1.4, 1.4) }
+    transition: opacity $slow-speed $normal-ease;
+    @include flex(center);
+    &:hover, &:active {
+      & #{ $self }__icon {
+        color: color($blue-grey, 100); transform: scale3d(1.4, 1.4, 1.4)
+      }
+    }
   }
+  &__pdf {
+    border: 1px solid white;
+    color: white;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color $slow-speed $normal-ease, color $slow-speed $normal-ease;
+    &:hover, &:active { background-color: white; color: color($grey, 900) }
+  }
+  &__icon { padding: 0 6px; font-size: 1.4rem; transition: color $slow-speed $normal-ease, transform $slow-speed $normal-ease }
   &__wrapper {
-    &--item-link { @include flex(column); }
+    &--item-link { @include flex(column) }
+    &--pdf { padding: 10px 0 20px; margin-top: auto }
   }
   &__content { flex-wrap: wrap; padding-top: 30px; @include flex(space-between, flex-start) }
   &__item {
@@ -88,6 +106,7 @@
 
 @include phone {
   .work {
+    &__control-text { display: none }
     &__topic { padding-bottom: 4px; font-size: 3.4rem }
     &__item { margin-bottom: 30px }
   }

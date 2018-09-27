@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleShift } from '../redux/actions/work';
 import { Page } from '../containers';
+import { Resume } from '../assets';
 import { WORK, TRANSITION_DELAY } from '../values';
 import '../styles/pages/work.css';
 
@@ -25,15 +26,19 @@ class Work extends Component {
     const { index } = this.state;
     const { shift } = this.props;
     const { title, data } = WORK[index];
+    const LEFT = index === 0 || shift;
+    const RIGHT = index === MAX || shift;
     return <Page block="work" className={shift? "work--shift": null}>
       <div className="work__head">
         <h1 className="work__header">Resume</h1>
         <h2 className="work__topic">{ title }</h2>
         <ul className="work__controls">
-          <li onClick={index === 0 || shift ? null : this.shift.bind(this, false)} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
-            <i className="work__icon fa fa-angle-left"/>
+          <li onClick={LEFT ? null : this.shift.bind(this, false)} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
+            <i className="work__icon fa fa-angle-left" />
+            <span className="work__control-text">Prev</span>
           </li>
-          <li onClick={index === MAX || shift ? null : this.shift.bind(this, true)} className={`work__control ${index === MAX ? "work__control--disabled" : ""}`}>
+          <li onClick={RIGHT ? null : this.shift.bind(this, true)} className={`work__control ${index === MAX ? "work__control--disabled" : ""}`}>
+            <span className="work__control-text">Next</span>
             <i className="work__icon fa fa-angle-right" />
           </li>
         </ul>
@@ -41,6 +46,9 @@ class Work extends Component {
       <section className="work__content">
         { data.map((item, key) => this.build(item, key)) }
       </section>
+      <div className="work__wrapper--pdf">
+        <a className="work__pdf" href={Resume} aria-label="To PDF of Resume">Want a PDF? Click Here</a>
+      </div>
     </Page>
   }
 

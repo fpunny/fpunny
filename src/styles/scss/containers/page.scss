@@ -13,6 +13,7 @@
 @include tablet {
   .page {
     justify-content: flex-start;
+    transition: transform $page-speed $normal-ease, opacity $page-speed $normal-ease;
     padding: 90px 7% 40px;
   }
 }
