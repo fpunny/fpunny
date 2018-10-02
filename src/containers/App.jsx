@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Async } from '../components';
-import { Nav, Footer } from '../containers';
+import { Nav, Footer, Swipe } from '../containers';
 import { NotFound } from '../pages';
 import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/index.css';
@@ -14,7 +14,7 @@ export class App extends Component {
   render() {
     const active = getPath();
     return (
-      <Fragment>
+      <Swipe>
         <Nav delay={TRANSITION_DELAY} items={PAGES} active={active}/>
         <Switch>
           {
@@ -22,10 +22,10 @@ export class App extends Component {
               <Route path={path} key={key} component={() => <Async loader={loader}/>} exact/>
             )
           }
-          <Route component={() => <Async loader={NotFound}/>} exact/>
+          <Route component={() => <Async loader={NotFound}/>}/>
         </Switch>
         <Footer/>
-      </Fragment>
+      </Swipe>
     );
   }
 }

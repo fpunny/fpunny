@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleShift } from '../redux/actions/work';
 import { Page } from '../containers';
-import { Resume } from '../assets';
 import { WORK, TRANSITION_DELAY } from '../values';
 import '../styles/pages/work.css';
 
@@ -30,8 +29,10 @@ class Work extends Component {
     const RIGHT = index === MAX || shift;
     return <Page block="work" className={shift? "work--shift": null}>
       <div className="work__head">
-        <h1 className="work__header">Resume</h1>
-        <h2 className="work__topic">{ title }</h2>
+        <div className="work__wrapper--head">
+          <h1 className="work__header">Resume</h1>
+          <h2 className="work__topic">{ title }</h2>
+        </div>
         <ul className="work__controls">
           <li onClick={LEFT ? null : this.shift.bind(this, false)} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
             <i className="work__icon fa fa-angle-left" />
@@ -47,7 +48,7 @@ class Work extends Component {
         { data.map((item, key) => this.build(item, key)) }
       </section>
       <div className="work__wrapper--pdf">
-        <a className="work__pdf" href={Resume} aria-label="To PDF of Resume">Want a PDF? Click Here</a>
+        <a className="work__pdf" href="/resume.pdf" aria-label="To PDF of Resume">Want a PDF? Click Here</a>
       </div>
     </Page>
   }

@@ -1,7 +1,6 @@
 @import '../mixins';
 @import '../variables';
 .async {
-
   $offset: 5px;
   @mixin animate($name, $x, $y) {
   animation: $name $page-speed $normal-ease infinite;
@@ -13,6 +12,7 @@
   }
 
   flex-grow: 1;
+  min-height: 100vh;
   animation: async $page-speed $enter-ease backwards;
   @keyframes async {
     from { opacity: 0 } to { opacity: 1 }

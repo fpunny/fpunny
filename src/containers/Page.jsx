@@ -6,11 +6,16 @@ import '../styles/containers/page.css';
 
 class _Page extends Component {
 
+  ref = new React.createRef();
+
   componentDidMount() {
+    // Fade toggle from page transition
     const { fade, toggleFade } = this.props;
+    if (fade) { toggleFade(false) }
+
+    // Reset scroll on page transition
     const Y = window.scrollY;
     if (Y !== 0) { window.scrollTo(0, 0) }
-    if (fade) { toggleFade(false) }
   }
 
   componentWillUnmount() {
@@ -19,7 +24,8 @@ class _Page extends Component {
 
   render() {
     const { block, className, style, fade, children } = this.props;
-    return <main style={style} className={`page ${block}${fade? ` ${block}--fade`: ""}${className? ` ${className}`: ""}`}>
+    const name = `page ${block}${fade ? ` ${block}--fade` : ""}${className ? ` ${className}` : ""}`;
+    return <main style={style} className={name}>
       { children }
     </main>
   }

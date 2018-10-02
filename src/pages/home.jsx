@@ -1,11 +1,11 @@
 import React from 'react';
-import { Back } from '../assets';
+import { Back, BackFallback } from '../assets';
 import { Page } from '../containers';
 import '../styles/pages/home.css';
 import { Link } from '../components';
 
 const Home = () => (
-  <Page style={{ backgroundImage: `url('${ Back }')` }} block="home">
+  <Page style={{ backgroundImage: `url('${ Back }'), url('${ BackFallback }')` }} block="home">
     <div className="home__text">
       <h1 className="home__header">Frederic Pun</h1>
       <span className="home__subheader">Yet Another Full-stack Web Developer</span>
