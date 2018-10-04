@@ -1,1 +1,1 @@
-export * from './touch';
+export * from './Touch';
