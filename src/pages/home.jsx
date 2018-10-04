@@ -1,7 +1,7 @@
 import React from 'react';
 import { Back, BackFallback } from '../assets';
 import { Page } from '../containers';
-import '../styles/pages/home.css';
+import '../styles/pages/home.scss';
 import { Link } from '../components';
 
 const Home = () => (

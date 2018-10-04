@@ -1,5 +1,5 @@
 import { TOGGLE_MOBILE, TOGGLE_NAV } from '../actions/nav';
-import { SWIPE_UP, SWIPE_DOWN, DOUBLE_TAP } from '../actions/swipe';
+import { SWIPE_UP, DOUBLE_TAP } from '../actions/swipe';
 
 const NAV_DEFAULT = {
   show: false,

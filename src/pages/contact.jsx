@@ -2,7 +2,7 @@ import React from 'react';
 import { HiddenLink } from '../components';
 import { Page } from '../containers';
 import { INFO } from '../values';
-import '../styles/pages/contact.css';
+import '../styles/pages/contact.scss';
 
 const ITEMS = Object.keys(INFO);
 const LIST_ITEM = (tag, key) => {

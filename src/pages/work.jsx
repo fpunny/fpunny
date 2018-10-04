@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { toggleShift } from '../redux/actions/work';
+import { toggleShift, changeIndex } from '../redux/actions/work';
 import { Page } from '../containers';
 import { WORK, TRANSITION_DELAY } from '../values';
-import '../styles/pages/work.css';
+import '../styles/pages/work.scss';
 
 const MAX = WORK.length - 1;
 
 class Work extends Component { 
 
-  state = { index: 0 }
   shift = next => {
-    this.props.toggleShift();
+    const { toggleShift, changeIndex, index } = this.props;
+    toggleShift();
     window.setTimeout(
       () => {
-        this.setState(({ index }) => ({ index: next ? ++index : --index }));
-        this.props.toggleShift();
+        changeIndex(next ? index+1 : index-1);
+        toggleShift();
       }, TRANSITION_DELAY
     )
   }
 
   render() {
-    const { index } = this.state;
-    const { shift } = this.props;
+    const { shift, index } = this.props;
     const { title, data } = WORK[index];
     const LEFT = index === 0 || shift;
     const RIGHT = index === MAX || shift;
@@ -92,11 +91,13 @@ class Work extends Component {
 }
 
 const mapStateToProps = state => ({
+  index: state.work.index,
   shift: state.work.shift
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleShift
+  toggleShift,
+  changeIndex
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Work);

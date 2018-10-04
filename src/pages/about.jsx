@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page } from '../containers';
-import '../styles/pages/about.css';
+import '../styles/pages/about.scss';
 
 const About = () => (
   <Page block="about">

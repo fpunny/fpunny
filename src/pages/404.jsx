@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '../components';
 import { Page } from '../containers';
-import '../styles/pages/404.css';
+import '../styles/pages/404.scss';
 
 const NotFound = () => (
   <Page block="notfound">

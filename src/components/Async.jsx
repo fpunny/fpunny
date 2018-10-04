@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { loaded } from '../redux/actions/page';
-import '../styles/components/async.css';
+import '../styles/components/async.scss';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPath } from '../containers';

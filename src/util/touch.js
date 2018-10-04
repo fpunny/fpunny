@@ -55,10 +55,8 @@ export class Touch {
 
   processTap = (id, time) => {
     const diff = time - this.taptime;
-    console.log(diff)
     if (this.tap === id && diff <= TAP_PAUSE) {
       this.action(doubleTap);
-      this.last
       this.tap = null;
     } else {
       this.tap = id;

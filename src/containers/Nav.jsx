@@ -6,7 +6,7 @@ import { LogoWhiteText } from '../assets';
 import { MobileNav } from '.';
 import { Link } from '../components';
 import { toggleNav } from '../redux/actions/nav';
-import '../styles/containers/nav.css';
+import '../styles/containers/nav.scss';
 
 const DELTA = 10;
 class _Nav extends PureComponent {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleFade } from '../redux/actions/page';
-import '../styles/containers/page.css';
+import '../styles/containers/page.scss';
 
 class _Page extends Component {
 

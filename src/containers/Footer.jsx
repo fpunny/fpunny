@@ -1,7 +1,7 @@
 import React from 'react';
 import { HiddenLink } from '../components';
 import { INFO } from '../values';
-import '../styles/containers/footer.css';
+import '../styles/containers/footer.scss';
 
 const ICONS = [
   INFO.Facebook,

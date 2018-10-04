@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { INFO } from '../values';
 import { Link, HiddenLink } from '../components';
-import '../styles/containers/mobileNav.css';
+import '../styles/containers/mobileNav.scss';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleMobile } from '../redux/actions/nav';

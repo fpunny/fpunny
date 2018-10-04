@@ -17,18 +17,22 @@ export class Swipe extends PureComponent {
   }
 
   componentDidMount() {
-    this.ref.addEventListener("touchstart", this.onTouchStart, { passive: true });
-    this.ref.addEventListener("touchend", this.onTouchEnd, { passive: true });
+    if (this.ref) {
+      this.ref.addEventListener("touchstart", this.onTouchStart, { passive: true });
+      this.ref.addEventListener("touchend", this.onTouchEnd, { passive: true });
+    }
   }
 
   componentWillUnmount() {
-    this.ref.removeEventListender("touchstart", this.onTouchStart);
-    this.ref.removeEventListender("touchend", this.onTouchEnd);
+    if (this.ref) {
+      this.ref.removeEventListener("touchstart", this.onTouchStart);
+      this.ref.removeEventListener("touchend", this.onTouchEnd);
+    }
   }
 
   render() {
     const { children } = this.props;
-    return <div ref={ el => this.ref = el }>
+    return <div ref={el => this.ref = el}>
       { children }
     </div>
   }

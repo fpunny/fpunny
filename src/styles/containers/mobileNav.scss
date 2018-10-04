@@ -11,7 +11,7 @@
   opacity: 0;
   flex-direction: column;
   transform: translate3d(0, -100%, 0);
-  padding: 100px 20px 25px;
+  padding: 100px 20px 10px;
   background-color: color($grey, 900);
   @include position(fixed);
 
@@ -25,6 +25,8 @@
     text-align: right;
     cursor: pointer;
     margin: 20px;
+    width: fit-content;
+    margin-left: auto;
     transition: color $normal-speed $normal-ease, transform $normal-speed $normal-ease;
     &:hover, &--active { color: white }
     &:hover { transform: translate3d(-6px, 0, 0) }
