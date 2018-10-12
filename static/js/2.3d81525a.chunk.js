@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[2],{81:function(e,a,t){"use strict";t.r(a);var n=t(0),c=t.n(n),o=t(37),r=t(23),l=(t(87),t(15));a.default=function(){return c.a.createElement(r.e,{style:{backgroundImage:"url('".concat(o.a,"'), url('").concat(o.b,"')")},block:"home"},c.a.createElement("div",{className:"home__text"},c.a.createElement("h1",{className:"home__header"},"Frederic Pun"),c.a.createElement("span",{className:"home__subheader"},"Yet Another Full-stack Web Developer")),c.a.createElement("div",{className:"home__wrapper--button"},c.a.createElement(l.c,{to:"/about",alt:"To about me page",className:"home__button"},"Learn More")))}},87:function(e,a,t){}}]);
-//# sourceMappingURL=2.effeb8db.chunk.js.map
+//# sourceMappingURL=2.3d81525a.chunk.js.map
