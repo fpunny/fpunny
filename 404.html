@@ -8,12 +8,6 @@
   <meta name="keywords" content="reactjs,portofolio,developer,fullstack,webdesign,intern,student,html,css,javascript">
   <meta name="author" content="Frederic Pun">
   <meta name="theme-color" content="#0d0d0d">
-  <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
   <title>Frederic Pun</title>
 </head>
 
@@ -24,7 +18,7 @@
   <script>
     // Redirects user from github 404 back to SPA
     const { replace, pathname } = location;
-    replace = `${process.env.PUBLIC_URL}?redirect=${pathname}`;
+    replace = `https://fpunny.com?redirect=${pathname}`;
   </script>
 </body>
 
