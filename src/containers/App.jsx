@@ -10,7 +10,6 @@ const LEN = process.env.PUBLIC_URL.length;
 export const getPath = () => window.location.pathname.slice(LEN);
 
 export class App extends Component {
-
   render() {
     const active = getPath();
     return (

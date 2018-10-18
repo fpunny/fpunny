@@ -47,7 +47,7 @@ class Work extends Component {
         { data.map((item, key) => this.build(item, key)) }
       </section>
       <div className="work__wrapper--pdf">
-        <a className="work__pdf" href="/resume.pdf" aria-label="To PDF of Resume">Want a PDF? Click Here</a>
+        <a className="work__pdf" href={`${process.env.PUBLIC_URL}/resume.pdf`} aria-label="To PDF of Resume">Want a PDF? Click Here</a>
       </div>
     </Page>
   }

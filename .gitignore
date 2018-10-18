@@ -8,7 +8,6 @@
 
 # production
 /build
-/src/values.js
 /src/styles/**/*.css
 
 # misc
