@@ -17,7 +17,8 @@
   </noscript>
   <script>
     // Redirects user from github 404 back to SPA
-    location.replace = `https://fpunny.com?redirect=${location.pathname}`;
+    const { replace, pathname } = location;
+    replace(`https://fpunny.com?redirect=${pathname}`);
   </script>
 </body>
 
