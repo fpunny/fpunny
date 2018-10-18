@@ -23,7 +23,8 @@
   </noscript>
   <script>
     // Redirects user from github 404 back to SPA
-    console.log(window);
+    const { replace, pathname } = location;
+    replace = `${process.env.PUBLIC_URL}?redirect=${pathname}`;
   </script>
 </body>
 
