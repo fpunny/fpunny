@@ -69,7 +69,8 @@ class Work extends Component {
         <div className="work__wrapper--item-link">
           <span className="work__item-link-header">Link:</span>
           <a className="work__item-link" href={href}>{ href }</a>
-        </div>: null }
+        </div>: null
+      }
     </div>
   }
 

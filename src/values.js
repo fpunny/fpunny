@@ -27,8 +27,8 @@ export const WORK = [
           "Redux + React Router",
           "Typescript",
           "SASS BEM",
-          "Bootstrap + QJuery",
-          "HTML5/CSS3/Javascript ES6",
+          "Bootstrap + JQuery",
+          "HTML5/CSS3/Javascript ES7",
           "Webpack + Babel"
         ]
       },
@@ -43,10 +43,10 @@ export const WORK = [
       {
         header: "DBMS",
         body: [
+          "MongoDB",
           "Firebase",
           "NeDB",
           "MySQL",
-          "SharePoint"
         ]
       },
       {
@@ -55,7 +55,7 @@ export const WORK = [
           "Android Studio",
           "C",
           "Java",
-          "Python 3"
+          "Python"
         ]
       },
     ]
@@ -101,6 +101,12 @@ export const WORK = [
   {
     title: "Projects",
     data: [
+      {
+        header: "Hack The 6ix",
+        sideheader: "Associate Web Developer",
+        subheader: "November 2018 - Present, Hack The 6ix",
+        body: "Creating full stack web applications from hacker applications to landing pages",
+      },
       {
         header: "Hack The Valley III",
         sideheader: "Developer",
