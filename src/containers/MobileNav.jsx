@@ -14,7 +14,7 @@ const ICONS = [
 ]
 class _MobileNav extends PureComponent {
 
-  toggleNav = () => this.props.toggleMobile()
+  toggleNav = async () => this.props.toggleMobile()
 
   render() {
     const { items, show } = this.props;

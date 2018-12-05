@@ -6,14 +6,14 @@ export class Swipe extends PureComponent {
   ref = new React.createRef();
   touch = new Touch();
 
-  onTouchStart = (el) => {
+  onTouchStart = async el => {
     if (this.touch.isEmpty) {
-      this.touch.init(el);
+      await this.touch.init(el);
     }
   }
 
-  onTouchEnd = (el) => {
-    this.touch.process(el);
+  onTouchEnd = async el => {
+    await this.touch.process(el);
   }
 
   componentDidMount() {

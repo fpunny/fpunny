@@ -1,5 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebook, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +20,15 @@ const async = loader => () => {
 };
 export const getPath = () => window.location.pathname.slice(LEN);
 
-export class App extends Component {
+class _App extends Component {
+
+  componentDidMount() {
+    const redirect = window.location.search.split("=");
+    if (redirect[0] === "?redirect") {
+      this.props.push(redirect[0].split('&'));
+    }
+  }
+
   render() {
     const active = getPath();
     return (
@@ -40,3 +48,5 @@ export class App extends Component {
     );
   }
 }
+
+export const App = withRouter(_App);

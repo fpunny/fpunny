@@ -12,17 +12,17 @@ const DELTA = 10;
 class _Nav extends PureComponent {
 
   scrolled = false;
-  toggleNav = () => this.props.toggleMobile();
-  handleScroll = (e) => {
+  toggleNav = async () => this.props.toggleMobile();
+  handleScroll = async e => {
     const { toggleNav } = this.props;
     const Y = e.currentTarget.scrollY;
 
     if (!this.scrolled && Y > DELTA) {
       this.scrolled = true;
-      toggleNav(true);
+      await toggleNav(true);
     } else if (this.scrolled && Y <= DELTA) {
       this.scrolled = false;
-      toggleNav(false);
+      await toggleNav(false);
     }
   }
 

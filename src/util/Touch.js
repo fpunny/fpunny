@@ -20,9 +20,9 @@ const MIN_OFFSET_Y = 40;
 export class Touch {
 
   isEmpty = true
-  action = action => store.dispatch(action())
+  action = async action => store.dispatch(action())
 
-  init = el => {
+  init = async el => {
     const { identifier, screenX, screenY } = el.targetTouches[0];
     this.id = identifier;
     this.X = screenX;
@@ -31,7 +31,7 @@ export class Touch {
     this.isEmpty = false;
   }
 
-  process = el => {
+  process = async el => {
     const { identifier, screenX, screenY } = el.changedTouches[0];
     if (this.id === identifier) {
       const dx = screenX - this.X;
@@ -42,7 +42,7 @@ export class Touch {
       if (dx <= TAP_OFFSET && dy <= TAP_OFFSET && dt <= TAP_DURATION) {
         this.processTap(identifier, el.timeStamp);
       } else if (v >= MIN_VELOCITY) {
-        this.processSwipe(dx, dy);
+        await this.processSwipe(dx, dy);
         this.tap = null;
       }
 
@@ -50,10 +50,10 @@ export class Touch {
     }
   }
 
-  processTap = (id, time) => {
+  processTap = async (id, time) => {
     const diff = time - this.taptime;
     if (this.tap === id && diff <= TAP_PAUSE) {
-      this.action(doubleTap);
+      await this.action(doubleTap);
       this.tap = null;
     } else {
       this.tap = id;
@@ -61,17 +61,17 @@ export class Touch {
     }
   }
 
-  processSwipe = (dx, dy) => {
+  processSwipe = async (dx, dy) => {
     const absx = Math.abs(dx);
     const absy = Math.abs(dy);
 
     if (absx > MIN_DISTANCE_X && absy <= MIN_OFFSET_X) {
-      if (dx > 0) { this.action(swipeRight) }
-      else { this.action(swipeLeft) }
+      if (dx > 0) { await this.action(swipeRight) }
+      else { await this.action(swipeLeft) }
 
     } else if (absy > MIN_DISTANCE_Y && absx <= MIN_OFFSET_Y) {
-      if (dy > 0) { this.action(swipeDown) }
-      else { this.action(swipeUp) }
+      if (dy > 0) { await this.action(swipeDown) }
+      else { await this.action(swipeUp) }
     }
   }
 }
