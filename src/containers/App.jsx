@@ -25,7 +25,7 @@ class _App extends Component {
   componentDidMount() {
     const redirect = window.location.search.split("=");
     if (redirect[0] === "?redirect") {
-      this.props.history.push(redirect[0].split('&'));
+      this.props.history.push(redirect[1]);
     }
   }
 
