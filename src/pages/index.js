@@ -1,13 +1,5 @@
-const NotFound = () => import('./404');
-const Home = () => import('./home');
-const About = () => import('./about');
-const Work = () => import('./work');
-const Contact = () => import('./contact');
-
-export {
-  NotFound,
-  Home,
-  About,
-  Work,
-  Contact
-}
+export const NotFound = () => import('./404');
+export const Home = () => import('./home');
+export const About = () => import('./about');
+export const Work = () => import('./work');
+export const Contact = () => import('./contact');
