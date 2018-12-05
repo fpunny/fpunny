@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HiddenLink } from '../components';
 import { INFO } from '../values';
 import '../styles/containers/footer.scss';
@@ -20,7 +21,7 @@ export const Footer = () => (
         ICONS.map(({ type, icon, link, alt }, key) =>
           <li key={key} className="footer__icon-item">
             <HiddenLink className="footer__link" alt={alt} href={ link }>
-              <i className={`footer__icon fa${ type } fa-${ icon }`} />
+              <FontAwesomeIcon className="footer__icon" icon={[type, icon]} />
             </HiddenLink>
           </li>
         )

@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export class HiddenLink extends PureComponent {
 
 
-  hover = (el) => {
+  reveal = (el) => {
     const { href } = this.props;
     el.currentTarget.href = href;
   }
@@ -13,8 +13,9 @@ export class HiddenLink extends PureComponent {
     return <a
       className={className}
       aria-label={alt}
-      onTouchStart={this.hover}
-      onMouseOver={this.hover}
+      onTouchStart={this.reveal}
+      onMouseOver={this.reveal}
+      onFocus={this.reveal}
       href="mailto:unscrapeable@fpunny.com"
     >
       {children}

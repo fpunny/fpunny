@@ -1,5 +1,8 @@
 import React, { Component, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Async } from '../components';
 import { Nav, Footer, Swipe } from '../containers';
 import { NotFound } from '../pages';
@@ -7,6 +10,7 @@ import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/components/async.scss';
 import '../styles/index.scss';
 
+library.add(faFacebook, faLinkedin, faGithub, faAngleLeft, faAngleRight);
 const LEN = process.env.PUBLIC_URL.length;
 const async = loader => () => {
   const Component = lazy(loader);

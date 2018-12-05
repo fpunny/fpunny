@@ -8,10 +8,10 @@ export const PAGES = [
 ];
 
 export const INFO = {
-  Facebook: { type: "b", icon: "facebook", link: "https://www.facebook.com/fredericpun", alt: "Link to Frederic Pun's Facebook" },
-  Linkedin: { type: "b", icon: "linkedin", link: "https://www.linkedin.com/in/fredericpun", alt: "Link to Frederic Pun's LinkedIn" },
-  Github: { type: "b", icon: "github", link: "https://github.com/fpunny", alt: "Link to Frederic Pun's LinkedIn" },
-  Email: { type: "s", icon: "envelope", link: "mailto:frederic.pun@mail.utoronto.ca", text: "frederic.pun@mail.utoronto.ca", alt: "Link to send an email to Frederic Pun" }
+  Facebook: { type: "fab", icon: "facebook", link: "https://www.facebook.com/fredericpun", alt: "Link to Frederic Pun's Facebook" },
+  Linkedin: { type: "fab", icon: "linkedin", link: "https://www.linkedin.com/in/fredericpun", alt: "Link to Frederic Pun's LinkedIn" },
+  Github: { type: "fab", icon: "github", link: "https://github.com/fpunny", alt: "Link to Frederic Pun's LinkedIn" },
+  Email: { type: "fas", icon: "envelope", link: "mailto:frederic.pun@mail.utoronto.ca", text: "frederic.pun@mail.utoronto.ca", alt: "Link to send an email to Frederic Pun" }
 }
 
 export const TRANSITION_DELAY = 500;

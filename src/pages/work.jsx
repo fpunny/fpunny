@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleShift, changeIndex } from '../redux/actions/work';
@@ -34,12 +35,12 @@ class Work extends Component {
         </div>
         <ul className="work__controls">
           <li onClick={LEFT ? null : this.shift.bind(this, false)} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
-            <i className="work__icon fa fa-angle-left" />
+            <FontAwesomeIcon className="work__icon" icon="angle-left" />
             <span className="work__control-text">Prev</span>
           </li>
           <li onClick={RIGHT ? null : this.shift.bind(this, true)} className={`work__control ${index === MAX ? "work__control--disabled" : ""}`}>
             <span className="work__control-text">Next</span>
-            <i className="work__icon fa fa-angle-right" />
+            <FontAwesomeIcon className="work__icon" icon="angle-right" />
           </li>
         </ul>
       </div>
