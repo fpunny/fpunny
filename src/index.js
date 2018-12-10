@@ -8,8 +8,15 @@ import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import thunk from 'redux-thunk';
 
+import WebFont from 'webfontloader';
 import * as Reducers from './redux/reducers';
 import { App } from './containers';
+
+WebFont.load({
+  google: {
+    families: ['Questrial']
+  }
+});
 
 const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
