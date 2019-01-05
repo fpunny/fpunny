@@ -1,5 +1,13 @@
-import { store } from '..';
-import { swipeUp, swipeRight, swipeDown, swipeLeft, doubleTap } from '../redux/actions/swipe';
+const dispatch = async event => dispatchEvent(new CustomEvent(event));
+
+// EVENTS
+const EVENTS = {
+  UP: 'onSwipeUp',
+  RIGHT: 'onSwipeRight',
+  DOWN: 'onSwipeDown',
+  LEFT: 'onSwipeLeft',
+  TAPTAP: 'onDoubleTap'
+}
 
 // Global Settings
 const MIN_VELOCITY = 0.8;
@@ -20,7 +28,6 @@ const MIN_OFFSET_Y = 40;
 export class Touch {
 
   isEmpty = true
-  action = async action => store.dispatch(action())
 
   init = async el => {
     const { identifier, screenX, screenY } = el.targetTouches[0];
@@ -53,7 +60,7 @@ export class Touch {
   processTap = async (id, time) => {
     const diff = time - this.taptime;
     if (this.tap === id && diff <= TAP_PAUSE) {
-      await this.action(doubleTap);
+      await dispatch(EVENTS.TAPTAP);
       this.tap = null;
     } else {
       this.tap = id;
@@ -66,12 +73,12 @@ export class Touch {
     const absy = Math.abs(dy);
 
     if (absx > MIN_DISTANCE_X && absy <= MIN_OFFSET_X) {
-      if (dx > 0) { await this.action(swipeRight) }
-      else { await this.action(swipeLeft) }
+      if (dx > 0) { await dispatch(EVENTS.RIGHT) }
+      else { await dispatch(EVENTS.LEFT) }
 
     } else if (absy > MIN_DISTANCE_Y && absx <= MIN_OFFSET_Y) {
-      if (dy > 0) { await this.action(swipeDown) }
-      else { await this.action(swipeUp) }
+      if (dy > 0) { await dispatch(EVENTS.DOWN) }
+      else { await dispatch(EVENTS.UP) }
     }
   }
 }

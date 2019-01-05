@@ -1,41 +1,39 @@
 import React, { PureComponent } from 'react';
-import { bindActionCreators } from 'redux';
-import { toggleMobile } from '../redux/actions/nav';
-import { connect } from 'react-redux';
 import { LogoWhiteText } from '../assets';
 import { MobileNav } from '.';
 import { Link } from '../components';
-import { toggleNav } from '../redux/actions/nav';
 import '../styles/containers/nav.scss';
 
 const DELTA = 10;
-class _Nav extends PureComponent {
+export class Nav extends PureComponent {
 
-  scrolled = false;
-  toggleNav = async () => this.props.toggleMobile();
-  handleScroll = async e => {
-    const { toggleNav } = this.props;
-    const Y = e.currentTarget.scrollY;
-
+  state = {
+    scrolled: false,
+    show: false
+  }
+  toggleNav = async () => this.setState(({ show }) => ({ show: !show }));
+  handleScroll = async ({ target }) => {
+    const Y = target.scrollY;
     if (!this.scrolled && Y > DELTA) {
-      this.scrolled = true;
-      await toggleNav(true);
+      this.setState({ scrolled: true });
     } else if (this.scrolled && Y <= DELTA) {
-      this.scrolled = false;
-      await toggleNav(false);
+      this.setState({ scrolled: false });
     }
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll, { passive: true });
+    window.addEventListener("onDoubleTap", this.toggleNav);
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("onDoubleTap", this.toggleNav);
   }
 
   render() {
-    const { items, active, show, scrolled } = this.props;
+    const { show, scrolled } = this.state;
+    const { items, active } = this.props;
     return <nav className={`nav${scrolled? " nav--scrolled": ""}${show? " nav--show": ""}`}>
       <div className="nav__wrapper--logo">
         <Link to="/" className="nav__logo" isActive={active === "/"}>
@@ -49,10 +47,10 @@ class _Nav extends PureComponent {
       </button>
       <ul className="nav__items">
         {
-          items.map(({ text, path }, key) => <this.NavItem path={path} key={key}>{ text }</this.NavItem>)
+          items.map(({ text, path }, key) => <this.NavItem path={ path } key={ key }>{ text }</this.NavItem>)
         }
       </ul>
-      <MobileNav items={items} show={show} active={active}/>
+      <MobileNav toggle={ this.toggleNav } items={ items } show={ show } active={ active }/>
     </nav>
   }
 
@@ -63,15 +61,3 @@ class _Nav extends PureComponent {
     </li>
   }
 }
-
-const mapStateToProps = state => ({
-  show: state.nav.show,
-  scrolled: state.nav.scrolled
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleMobile,
-  toggleNav
-}, dispatch);
-
-export const Nav = connect(mapStateToProps, mapDispatchToProps)(_Nav);

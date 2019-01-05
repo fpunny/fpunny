@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { Touch } from '../util';
 
 export class Swipe extends PureComponent {
-
-  ref = new React.createRef();
+  
   touch = new Touch();
 
   onTouchStart = async el => {
@@ -17,23 +16,14 @@ export class Swipe extends PureComponent {
   }
 
   componentDidMount() {
-    if (this.ref) {
-      this.ref.addEventListener("touchstart", this.onTouchStart, { passive: true });
-      this.ref.addEventListener("touchend", this.onTouchEnd, { passive: true });
-    }
+    window.addEventListener("touchstart", this.onTouchStart, { passive: true });
+    window.addEventListener("touchend", this.onTouchEnd, { passive: true });
   }
 
   componentWillUnmount() {
-    if (this.ref) {
-      this.ref.removeEventListener("touchstart", this.onTouchStart);
-      this.ref.removeEventListener("touchend", this.onTouchEnd);
-    }
+    window.removeEventListener("touchstart", this.onTouchStart);
+    window.removeEventListener("touchend", this.onTouchEnd);
   }
 
-  render() {
-    const { children } = this.props;
-    return <div ref={el => this.ref = el}>
-      { children }
-    </div>
-  }
+  render() { return this.props.children }
 }

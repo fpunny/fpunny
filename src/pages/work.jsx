@@ -1,44 +1,56 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { toggleShift, changeIndex } from '../redux/actions/work';
 import { Page } from '../containers';
 import { WORK, TRANSITION_DELAY } from '../values';
 import '../styles/pages/work.scss';
 
 const MAX = WORK.length - 1;
 
-class Work extends Component { 
+export default class Work extends Component {
 
-  shift = next => {
-    const { toggleShift, changeIndex, index } = this.props;
-    toggleShift();
-    window.setTimeout(
-      () => {
-        changeIndex(next ? index+1 : index-1);
-        toggleShift();
-      }, TRANSITION_DELAY
-    )
+  state = {
+    shift: false,
+    index: 0
+  }
+
+  componentDidMount() {
+    window.addEventListener('onSwipeLeft', this.right);
+    window.addEventListener('onSwipeRight', this.left);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('onSwipeLeft', this.right);
+    window.removeEventListener('onSwipeRight', this.left);
+  }
+
+  left = () => this.shift(Math.max(this.state.index - 1, 0))
+  right = () => this.shift(Math.min(this.state.index + 1, MAX))
+
+  shift = index => {
+    if (index !== this.state.index) {
+      this.setState({ shift: true });
+      window.setTimeout(
+        () => this.setState({ shift: false, index }),
+        TRANSITION_DELAY
+      );
+    }
   }
 
   render() {
-    const { shift, index } = this.props;
+    const { shift, index } = this.state;
     const { title, data } = WORK[index];
-    const LEFT = index === 0 || shift;
-    const RIGHT = index === MAX || shift;
     return <Page block="work" className={shift? "work--shift": null}>
       <div className="work__head">
         <div className="work__wrapper--head">
-          <h1 className="work__header">Resume</h1>
-          <h2 className="work__topic">{ title }</h2>
+          <h1 className="work__topic">Resume</h1>
+          <h2 className="work__header">{ title }</h2>
         </div>
         <ul className="work__controls">
-          <li onClick={LEFT ? null : this.shift.bind(this, false)} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
+          <li onClick={this.left} className={`work__control ${index === 0? "work__control--disabled": ""}`}>
             <FontAwesomeIcon className="work__icon" icon="angle-left" />
             <span className="work__control-text">Prev</span>
           </li>
-          <li onClick={RIGHT ? null : this.shift.bind(this, true)} className={`work__control ${index === MAX ? "work__control--disabled" : ""}`}>
+          <li onClick={this.right} className={`work__control ${index === MAX ? "work__control--disabled" : ""}`}>
             <span className="work__control-text">Next</span>
             <FontAwesomeIcon className="work__icon" icon="angle-right" />
           </li>
@@ -91,15 +103,3 @@ class Work extends Component {
     return body
   }
 }
-
-const mapStateToProps = state => ({
-  index: state.work.index,
-  shift: state.work.shift
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleShift,
-  changeIndex
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Work);

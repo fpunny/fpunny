@@ -13,7 +13,7 @@
     font-size: 4.4rem;
     letter-spacing: 0.1rem;
     align-self: flex-end;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.2);
     @include position(absolute, -36px auto auto 5px, 0);
   }
   &__controls {
@@ -118,11 +118,11 @@
 // Shifts
 .work {
   $self: &;
-  &__content, &__topic { transition: opacity $page-speed $normal-ease, transform $page-speed $normal-ease }
+  &__header { transition: opacity $page-speed $normal-ease }
+  &__content { transition: opacity $page-speed $normal-ease, transform $page-speed $normal-ease }
   &--shift {
     & #{ $self } {
-      &__topic, &__content { opacity: 0 }
-      &__topic { transform: translate3d(40px, 0, 0) }
+      &__content, &__header { opacity: 0 }
       &__content { transform: translate3d(-40px, 0, 0) }
     }
   }

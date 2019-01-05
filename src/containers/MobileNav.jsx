@@ -3,25 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { INFO } from '../values';
 import { Link, HiddenLink } from '../components';
 import '../styles/containers/mobileNav.scss';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { toggleMobile } from '../redux/actions/nav';
 
 const ICONS = [
   INFO.Facebook,
   INFO.Linkedin,
   INFO.Github
 ]
-class _MobileNav extends PureComponent {
-
-  toggleNav = async () => this.props.toggleMobile()
+export class MobileNav extends PureComponent {
 
   render() {
     const { items, show } = this.props;
     return <div className={`mobile${show? " mobile--show": ""}`}>
       <ul className="mobile__items">
         {
-          items.map(({ text, path }, key) => <this.Item path={path} key={key}>{text}</this.Item>)
+          items.map(({ text, path }, key) => <this.Item path={path} key={key} index={key}>{text}</this.Item>)
         }
       </ul>
       <div className="mobile__content">
@@ -44,21 +39,11 @@ class _MobileNav extends PureComponent {
     </div>
   }
 
-  Item = ({ path, children }) => {
-    const { active } = this.props;
+  Item = ({ path, index, children }) => {
+    const { active, toggle } = this.props;
     const isActive = path === active;
-    return <li onClick={isActive? null: this.toggleNav} className={`mobile__item${isActive ? " mobile__item--active" : ""}`}>
+    return <li data-key={index} onClick={toggle} className={`mobile__item${isActive ? " mobile__item--active" : ""}`}>
       <Link to={path} className="mobile__link" isActive={isActive}>{children}</Link>
     </li>
   }
 }
-
-const mapStateToProps = state => ({
-  show: state.nav.show
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleMobile
-}, dispatch);
-
-export const MobileNav = connect(mapStateToProps, mapDispatchToProps)(_MobileNav);
