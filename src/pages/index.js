@@ -1,5 +1,5 @@
-export const NotFound = () => import('./404');
-export const Home = () => import('./home');
-export const About = () => import('./about');
-export const Work = () => import('./work');
-export const Contact = () => import('./contact');
+export const NotFound = () => import(/* webpackChunkName: "404" */ './404');
+export const Home = () => import(/* webpackChunkName: "Home" */ './home');
+export const About = () => import(/* webpackChunkName: "About" */ './about');
+export const Work = () => import(/* webpackChunkName: "Work" */ './work');
+export const Contact = () => import(/* webpackChunkName: "Contact" */ './contact');
