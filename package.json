@@ -1,7 +1,7 @@
 {
   "name": "fpunny-personal-v4",
   "version": "1.0.0",
-  "homepage": "https://fpunny.com",
+  "homepage": "https://fpunny.xyz",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
