@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Page } from '../containers';
 import '../styles/pages/about.scss';
 
-const About = () => (
+const About = memo(() => (
   <Page block="about">
     <h1 className="about__header">About Me</h1>
     <section className="about__content">
@@ -22,6 +22,6 @@ const About = () => (
       </ul>
     </section>
   </Page>
-)
+));
 
 export default About;

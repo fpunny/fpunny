@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { HiddenLink } from '../components';
 import { Page } from '../containers';
 import { INFO } from '../values';
@@ -15,7 +15,7 @@ const LIST_ITEM = (tag, key) => {
   </li>
 }
 
-const Contact = () => (
+const Contact = memo(() => (
   <Page block="contact">
     <h1 className="contact__header">Contact</h1>
     <ul className="contact__items">{ ITEMS.map(LIST_ITEM) }</ul>
@@ -24,6 +24,6 @@ const Contact = () => (
       <p className="contact__text">Just leave me a message, and I'll reply as soon as possible.</p>
     </div>
   </Page>
-)
+));
 
 export default Contact;

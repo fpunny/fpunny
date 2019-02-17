@@ -1,24 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { useState, memo } from 'react';
 
-export class HiddenLink extends PureComponent {
-
-
-  reveal = (el) => {
-    const { href } = this.props;
-    el.currentTarget.href = href;
-  }
-
-  render() {
-    const { className, children, alt } = this.props;
-    return <a
-      className={className}
-      aria-label={alt}
-      onTouchStart={this.reveal}
-      onMouseOver={this.reveal}
-      onFocus={this.reveal}
-      href="mailto:unscrapeable@fpunny.com"
+export const HiddenLink = memo(({ className, children, href, alt }) => {
+  const [shownHref, setHref] = useState('mailto:unscrapeable@fpunny.com');
+  const reveal = () => setHref(href);
+  return (
+    <a
+      className={ className }
+      aria-label={ alt }
+      onTouchStart={ reveal }
+      onMouseOver={ reveal }
+      onFocus={ reveal }
+      href={ shownHref }
     >
-      {children}
+      { children }
     </a>
-  }
-}
+  );
+});

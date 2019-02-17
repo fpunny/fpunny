@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import '../styles/components/async.scss';
 
-export const Async = () => (
+export const Async = memo(() => (
   <main className="async">
     <div className="async__spinner">
       <div className="async__line">
@@ -14,4 +14,4 @@ export const Async = () => (
       </div>
     </div>
   </main>
-);
+));

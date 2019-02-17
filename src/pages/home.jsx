@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Back, BackFallback } from '../assets';
 import { Page } from '../containers';
 import '../styles/pages/home.scss';
 import { Link } from '../components';
 
-const Home = () => (
+const Home = memo(() => (
   <Page style={{ backgroundImage: `url('${ Back }'), url('${ BackFallback }')` }} block="home">
     <div className="home__text">
       <h1 className="home__header">Frederic Pun</h1>
@@ -14,6 +14,6 @@ const Home = () => (
       <Link to="/about" alt="To about me page" className="home__button">Learn More</Link>
     </div>
   </Page>
-)
+));
 
 export default Home;

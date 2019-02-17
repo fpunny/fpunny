@@ -1,8 +1,5 @@
-import React, { Component, Suspense, lazy } from 'react';
+import React, { useEffect, Suspense, lazy, Fragment } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebook, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Async } from '../components';
 import { Nav, Footer, Swipe } from '../containers';
 import { NotFound } from '../pages';
@@ -10,30 +7,28 @@ import { PAGES, TRANSITION_DELAY } from '../values';
 import '../styles/components/async.scss';
 import '../styles/index.scss';
 
-library.add(faFacebook, faLinkedin, faGithub, faAngleLeft, faAngleRight);
 const LEN = process.env.PUBLIC_URL.length;
+
+export const getPath = () => window.location.pathname.slice(LEN);
 const async = loader => () => {
   const Component = lazy(loader);
-  return <Suspense fallback={<Async/>}>
-    <Component/>
-  </Suspense>
-};
-export const getPath = () => window.location.pathname.slice(LEN);
+  return <Component/>;
+}
 
-class _App extends Component {
+const _App = ({ history }) => {
 
-  componentDidMount() {
+  useEffect(() => {
     const redirect = window.location.search.split("=");
     if (redirect[0] === "?redirect") {
-      this.props.history.push(redirect[1]);
+      history.push(redirect[1]);
     }
-  }
+  });
 
-  render() {
-    const active = getPath();
-    return (
-      <Swipe>
-        <Nav delay={TRANSITION_DELAY} items={PAGES} active={active}/>
+  const active = getPath();
+  return (
+    <Fragment>
+      <Nav delay={TRANSITION_DELAY} items={PAGES} active={active}/>
+      <Suspense fallback={<Async/>}>
         <Switch>
           {
             PAGES.map(({ path, loader }, key) => 
@@ -43,10 +38,11 @@ class _App extends Component {
           <Route path="/resume.pdf" onEnter={() => window.reload()} exact/>
           <Route component={async(NotFound)}/>
         </Switch>
-        <Footer/>
-      </Swipe>
-    );
-  }
+      </Suspense>
+      <Footer/>
+      <Swipe/>
+    </Fragment>
+  );
 }
 
 export const App = withRouter(_App);

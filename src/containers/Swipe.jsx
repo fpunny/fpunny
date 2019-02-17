@@ -1,29 +1,20 @@
-import { PureComponent } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Touch } from '../util';
 
-export class Swipe extends PureComponent {
-  
-  touch = new Touch();
+export const Swipe = memo(({ children }) => {
 
-  onTouchStart = async el => {
-    if (this.touch.isEmpty) {
-      await this.touch.init(el);
+  const [ touch ] = useState(new Touch());
+  const onTouchEnd = async el => touch.process(el);
+  const onTouchStart = async el => touch.isEmpty ? await touch.init(el) : null;
+
+  useEffect(() => {
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchend", onTouchEnd);
     }
-  }
+  });
 
-  onTouchEnd = async el => {
-    await this.touch.process(el);
-  }
-
-  componentDidMount() {
-    window.addEventListener("touchstart", this.onTouchStart, { passive: true });
-    window.addEventListener("touchend", this.onTouchEnd, { passive: true });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("touchstart", this.onTouchStart);
-    window.removeEventListener("touchend", this.onTouchEnd);
-  }
-
-  render() { return this.props.children }
-}
+  return children;
+});

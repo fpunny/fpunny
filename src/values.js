@@ -8,10 +8,10 @@ export const PAGES = [
 ];
 
 export const INFO = {
-  Facebook: { type: "fab", icon: "facebook", link: "https://www.facebook.com/fredericpun", alt: "Link to Frederic Pun's Facebook" },
-  Linkedin: { type: "fab", icon: "linkedin", link: "https://www.linkedin.com/in/fredericpun", alt: "Link to Frederic Pun's LinkedIn" },
-  Github: { type: "fab", icon: "github", link: "https://github.com/fpunny", alt: "Link to Frederic Pun's LinkedIn" },
-  Email: { type: "fas", icon: "envelope", link: "mailto:frederic.pun@mail.utoronto.ca", text: "frederic.pun@mail.utoronto.ca", alt: "Link to send an email to Frederic Pun" }
+  Facebook: { icon: "faFacebook", link: "https://www.facebook.com/fredericpun", alt: "Link to Frederic Pun's Facebook" },
+  Linkedin: { icon: "faLinkedin", link: "https://www.linkedin.com/in/fredericpun", alt: "Link to Frederic Pun's LinkedIn" },
+  Github: { icon: "faGithub", link: "https://github.com/fpunny", alt: "Link to Frederic Pun's LinkedIn" },
+  Email: { link: "mailto:frederic.pun@mail.utoronto.ca", text: "frederic.pun@mail.utoronto.ca", alt: "Link to send an email to Frederic Pun" }
 }
 
 export const TRANSITION_DELAY = 500;
@@ -23,19 +23,21 @@ export const WORK = [
       {
         header: "Front-end",
         body: [
-          "ReactJS using CRA & Gatsby",
-          "Redux + React Router",
+          "ReactJS using CRA",
+          "Redux & MobX",
           "Typescript",
           "SASS BEM",
+          "Styled Components",
+          "StoryBook",
           "Bootstrap + JQuery",
-          "HTML5/CSS3/Javascript ES7",
-          "Webpack + Babel"
+          "HTML5/CSS3/Javascript ES7"
         ]
       },
       {
         header: "Back-end",
         body: [
           "NodeJS with Express",
+          'GraphQL',
           "PHP",
           "Flask"
         ]
@@ -43,15 +45,17 @@ export const WORK = [
       {
         header: "DBMS",
         body: [
-          "MongoDB",
+          "MongoDB + Mongoose",
           "Firebase",
           "NeDB",
-          "MySQL",
+          "MySQL"
         ]
       },
       {
         header: "Others",
         body: [
+          "Webpack + Babel",
+          "Rollup",
           "Android Studio",
           "C",
           "Java",
@@ -71,7 +75,7 @@ export const WORK = [
       {
         header: "The International School of Macao",
         subheader: "September 2008 - June 2016",
-        body: "Provincial Diplona, Canadian Alberta Curriculum"
+        body: "Provincial Diploma, Canadian Alberta Curriculum"
       }
     ]
   },
@@ -154,6 +158,12 @@ export const WORK = [
   {
     title: "Volunteer",
     data: [
+      {
+        header: "ElleHacks 2019",
+        sideheader: "Mentor",
+        subheaer: "February 2019, York University",
+        body: "Working with other mentors to provide mentoring to teams throughout the whole event. Assisted with OAuth, databases, web applications, and DNS related issues."
+      },
       {
         header: "Canada Learning Code",
         sideheader: "Mentor",
