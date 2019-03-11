@@ -1,10 +1,10 @@
 import { Home, About, Work, Contact } from './pages';
 
 export const PAGES = [
-  { text: "Home", path: "/", loader: Home },
-  { text: "About", path: "/about", loader: About },
-  { text: "Resume", path: "/work", loader: Work },
-  { text: "Contact", path: "/contact", loader: Contact }
+  { text: "Home", path: "/", Component: Home },
+  { text: "About", path: "/about", Component: About },
+  { text: "Resume", path: "/work", Component: Work },
+  { text: "Contact", path: "/contact", Component: Contact }
 ];
 
 export const INFO = {
@@ -54,8 +54,8 @@ export const WORK = [
       {
         header: "Others",
         body: [
-          "Webpack + Babel",
-          "Rollup",
+          "Babel",
+          "Rollup + Webpack",
           "Android Studio",
           "C",
           "Java",

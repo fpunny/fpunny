@@ -2,7 +2,7 @@
 @import '../variables';
 
 .about {
-  &__content { padding-top: 35px; @include flex(flex-start, space-between) }
+  &__content { padding-top: 35px; @include flex }
   &__subheader { width: 200px; letter-spacing: 0.03rem }
   &__text { width: 80% }
   &__emoji { font-size: 0.8rem }
