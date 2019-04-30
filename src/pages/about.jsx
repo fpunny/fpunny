@@ -9,7 +9,7 @@ const About = memo(() => (
       <h2 className="about__subheader">Professional</h2>
       <ul className="about__text">
         <li className="about__line">A third year co-op computer science student at the University of Toronto.</li>
-        <li className="about__line">Adventuring into ReactJS, where I'm currently learning to fine-tuning my applications for better performance.</li>
+        <li className="about__line">Adventuring into ReactJS, where I'm currently learning to fine-tune my applications for better performance.</li>
         <li className="about__line">In the future, I hope to expand my skills into more react related technologies such as React Native and Next.js.</li>
       </ul>
     </section>

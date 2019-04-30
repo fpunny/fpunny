@@ -143,7 +143,7 @@ export const WORK = [
         header: "CSCB20 Final Assignment",
         sideheader: "Student",
         subheader: "March 2018",
-        body: "Created an grading platform similar to Blackboard using PHP, HTML, CSS, and Javascript. This project demostrates my skills without using frameworks to create an MVC application with an REST API and interactive front-end.",
+        body: "Created a grading platform similar to Blackboard using PHP, HTML, CSS, and Javascript. This project demostrates my skills without using frameworks to create an MVC application with an REST API and interactive front-end.",
         href: "https://github.com/fpunny/cscb20-a3"
       },
       {
