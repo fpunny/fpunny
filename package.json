@@ -24,7 +24,7 @@
   "devDependencies": {
     "enzyme": "^3.9.0",
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react-test-renderer": "^16.8.6"
   },
   "browserslist": [
